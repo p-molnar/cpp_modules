@@ -1,8 +1,10 @@
 NAME	:=	phonebook
 CC		:=	c++
-CFLAGS	?=	-Wall -Werror -Wextra -pedantic-errors -std=c++17
+CFLAGS	?=	-I$(INCLUDE) -Wall -Werror -Wextra -pedantic-errors -std=c++17
 LDFLAGS	?=
-SRC		=	main.cpp
+INCLUDE	=	include/
+SRC		=	main.cpp	\
+			utils.cpp
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
 all:	$(NAME)
