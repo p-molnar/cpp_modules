@@ -1,0 +1,7 @@
+#ifndef CLASS_CONSTANTS_HPP
+# define CLASS_CONSTANTS_HPP
+
+#define CAPACITY 8
+#define CONTACT_FIELDS_COUNT 4
+
+#endif
