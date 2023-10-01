@@ -1,6 +1,6 @@
 NAME	:=	megaphone
 CC		:=	c++
-CFLAGS	?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
+CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
 LDFLAGS	?=
 SRC		=	megaphone.cpp
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
@@ -12,7 +12,7 @@ $(NAME):	$(OBJ)
 
 obj/%.o:	src/%.cpp
 	@mkdir -p $(dir $@)
-	$(CC) -c $(CFLAGS) -o $@ $^
+	$(CC) -c $(CPPFLAGS) -o $@ $^
 
 clean:	
 	rm -rf obj
