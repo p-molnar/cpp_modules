@@ -1,27 +1,38 @@
 #include <iostream>
 #include <array>
 #include <iomanip>
-
-#include <utils.hpp>
-#include <class_constants.hpp>
+#include "utils.hpp"
+#include "class_constants.hpp"
 
 class Contact
 {
 private:
-	std::string m_first_name{};
-	std::string m_last_name{};
-	std::string m_nickname{};
-	std::string m_phone_num{};
-	std::string m_secret{};
-	bool m_is_created{false};
+	std::string m_first_name;
+	std::string m_last_name;
+	std::string m_nickname;
+	std::string m_phone_num;
+	std::string m_secret;
+	bool m_is_created;
 
 public:
+	Contact()
+	{
+		m_first_name = "";
+		m_last_name = "";
+		m_nickname = "";
+		m_phone_num = "";
+		m_secret = "";
+		m_is_created = false;
+	}
 	void create()
 	{
 		m_first_name = prompt("enter first name: ");
 		m_last_name = prompt("enter last name: ");
 		m_nickname = prompt("enter nickname: ");
-		m_phone_num = prompt("enter phone number: ", &(isNumeric), "field can only contain numeric characters\n", true);
+		m_phone_num = prompt("enter phone number: ",
+							 &(isNumeric),
+							 "field can only contain numeric characters\n",
+							 true);
 		m_secret = prompt("enter darkest secret: ");
 		m_is_created = true;
 	}
@@ -47,22 +58,22 @@ public:
 class PhoneBook
 {
 private:
-	int m_last_contact_idx{0};
-	std::array<Contact, CAPACITY> m_contacts{};
+	int m_last_contact_idx;
+	std::array<Contact, CAPACITY> m_contacts;
 
 private:
 	void printContactListHeader()
 	{
-		constexpr int column_count{4};
-		std::array<std::string, column_count> column_name{"index",
-														  "first name",
-														  "last name",
-														  "nickname"};
+		const int column_count = 4;
+		std::array<std::string, column_count> column_name = {"index",
+															 "first name",
+															 "last name",
+															 "nickname"};
 
-		for (std::string name : column_name)
-			std::cout << std::setw(10) << name << " | ";
+		for (int i = 0; i < column_count; i++)
+			std::cout << std::setw(10) << column_name[i] << " | ";
 		std::cout << '\n';
-		for (std::string name : column_name)
+		for (int i = 0; i < column_count; i++)
 			std::cout << "----------"
 					  << "-+-";
 		std::cout << '\n';
@@ -70,11 +81,10 @@ private:
 
 	void printContactListFooter()
 	{
-		constexpr int column_count{4};
-		constexpr int column_width{10};
-		constexpr int separator_width{3};
-		constexpr int total_width{column_count *
-								  (column_width + separator_width)};
+		const int column_count = 4;
+		const int column_width = 10;
+		const int separator_width = 3;
+		const int total_width = column_count * (column_width + separator_width);
 
 		for (int i = 0; i < total_width; i++)
 			std::cout << "-";
@@ -82,6 +92,11 @@ private:
 	}
 
 public:
+	PhoneBook()
+	{
+		m_last_contact_idx = 0;
+	}
+
 	void displayAvailableCommands()
 	{
 		std::cout << "Available commands:" << std::endl;
@@ -98,7 +113,7 @@ public:
 
 	void search(int i)
 	{
-		if (m_contacts[i].isCreated())
+		if ((i >= 0 && i < CAPACITY) && m_contacts[i].isCreated())
 			m_contacts[i].printDetails();
 		else
 			std::cout << "contact at index '" << i << "' doesn't exist\n";
@@ -106,26 +121,33 @@ public:
 
 	void displayContactList()
 	{
-		int i{0};
-		constexpr int column_width{10};
-		std::array<std::string, CONTACT_FIELDS_COUNT> field_value;
+		const int column_width = 10;
+		const int contact_field_count = 4;
+		std::string curr_field;
+
 		printContactListHeader();
-		for (Contact contact : m_contacts)
+
+		for (int i = 0; i < CAPACITY; i++)
 		{
+			Contact contact = m_contacts[i];
 			if (contact.isCreated())
 			{
-				field_value = {std::to_string(i),
-							   contact.getFirstName(),
-							   contact.getLastName(),
-							   contact.getNickname()};
-				for (std::string val : field_value)
+				std::array<std::string, contact_field_count> field_value =
+					{std::to_string(i),
+					 contact.getFirstName(),
+					 contact.getLastName(),
+					 contact.getNickname()};
+
+				for (int i = 0; i < contact_field_count; i++)
+				{
+					curr_field = field_value[i];
 					std::cout << std::setw(column_width)
-							  << (val.length() > 10
-									  ? stringSlice(val, 0, 9) + '.'
-									  : val)
+							  << (curr_field.length() > 10
+									  ? stringSlice(curr_field, 0, 9) + '.'
+									  : curr_field)
 							  << " | ";
+				}
 				std::cout << std::endl;
-				i++;
 			}
 		}
 		printContactListFooter();
@@ -134,9 +156,9 @@ public:
 
 int main()
 {
-	std::string command{};
-	PhoneBook phonebook{};
-	int contact_index{};
+	std::string command;
+	PhoneBook phonebook;
+	int contact_index;
 
 	phonebook.displayAvailableCommands();
 	while (command != "EXIT")
@@ -144,7 +166,7 @@ int main()
 		command = prompt();
 		if (command == "ADD")
 		{
-			Contact contact{};
+			Contact contact;
 			contact.create();
 			phonebook.add(contact);
 		}
@@ -152,7 +174,9 @@ int main()
 		{
 			phonebook.displayContactList();
 			contact_index = stoi(prompt("enter contact index: ",
-										&(isInRange), "index out of range\n", true));
+										&(isNumeric),
+										"invalid input\n",
+										true));
 			phonebook.search(contact_index);
 		}
 		else if (command != "EXIT")

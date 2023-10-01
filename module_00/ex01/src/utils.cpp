@@ -2,9 +2,9 @@
 
 bool isNumeric(std::string s)
 {
-	int i{0};
-	int len{static_cast<int>(s.length())};
+	int len = static_cast<int>(s.length());
 
+	int i = 0;
 	while (i < len)
 	{
 		if (i == 0 && (s[i] == '+' || s[i] == '-') && len > 1)
@@ -14,24 +14,6 @@ bool isNumeric(std::string s)
 		else
 			return false;
 	}
-	return true;
-}
-
-bool isInRange(std::string input)
-{
-	constexpr int min{0};
-	constexpr int max{7};
-	int n{};
-
-	if (!isNumeric(input))
-	{
-		std::cout << "index must of numeric type\n";
-		return false;
-	}
-
-	n = stoi(input);
-	if (n < min || n > max)
-		return false;
 	return true;
 }
 
@@ -56,9 +38,8 @@ std::string prompt(std::string_view msg = "> ",
 
 std::string stringSlice(std::string s, int start, int stop)
 {
-	std::string sliced_string{};
+	std::string sliced_string = "";
 	for (int i = start; i < stop; i++)
 		sliced_string += s[i];
 	return (sliced_string);
 }
-
