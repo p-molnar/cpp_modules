@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-	std::string curr_arg{};
+	std::string curr_arg;
 
 	if (argc == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";

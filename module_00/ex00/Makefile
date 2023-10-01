@@ -1,6 +1,6 @@
 NAME	:=	megaphone
 CC		:=	c++
-CFLAGS	?=	-Wall -Werror -Wextra -pedantic-errors -std=c++17
+CFLAGS	?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
 LDFLAGS	?=
 SRC		=	megaphone.cpp
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
