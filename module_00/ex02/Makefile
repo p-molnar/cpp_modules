@@ -33,5 +33,6 @@ test:
 	make all
 	./$(NAME) > $(NAME).log
 	vimdiff 19920104_091532.log $(NAME).log
+	rm -f $(NAME).log
 
 .PHONY:	all clean fclean re
