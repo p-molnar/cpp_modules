@@ -3,7 +3,6 @@
 
 #include <string>
 
-bool isInRange(std::string input);
 bool isNumeric(std::string s);
 std::string prompt(std::string msg = "> ",
 				   bool (*validator_fn)(std::string) = NULL,
