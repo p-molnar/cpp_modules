@@ -67,9 +67,9 @@ private:
 	{
 		const int column_count = 4;
 		std::string column_name[column_count] = {"index",
-												"first name",
-												"last name",
-												"nickname"};
+												 "first name",
+												 "last name",
+												 "nickname"};
 
 		for (int i = 0; i < column_count; i++)
 			std::cout << std::setw(10) << column_name[i] << " | ";
@@ -133,12 +133,13 @@ public:
 		{
 			Contact contact = m_contacts[i];
 			if (contact.isCreated())
-			{	char buff[8];
+			{
+				char buff[8];
 				snprintf(buff, 8, "%d", i);
 				field_value[0] = static_cast<std::string>(buff);
-		 		field_value[1] = contact.getFirstName();
-		 		field_value[2] = contact.getLastName();
-		 		field_value[3] = contact.getNickname();
+				field_value[1] = contact.getFirstName();
+				field_value[2] = contact.getLastName();
+				field_value[3] = contact.getNickname();
 
 				for (int i = 0; i < contact_field_count; i++)
 				{
@@ -179,7 +180,8 @@ int main()
 			contact_index = atoi(prompt("enter contact index: ",
 										&(isNumeric),
 										"invalid input\n",
-										true).c_str());
+										true)
+									 .c_str());
 			phonebook.search(contact_index);
 		}
 		else if (command != "EXIT")
