@@ -2,6 +2,7 @@ NAME	:=	phonebook
 CC		:=	c++
 CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
 CPPFLAGS+=	-I$(INCLUDE)
+CPPFLAGS+=	-MMD -MP
 LDFLAGS	?=
 INCLUDE	=	include/
 SRC		=	main.cpp	\
@@ -16,6 +17,8 @@ $(NAME):	$(OBJ)
 obj/%.o:	src/%.cpp
 	@mkdir -p $(dir $@)
 	$(CC) -c $(CPPFLAGS) -o $@ $^
+
+-include $(SRC:.cpp=.d)
 
 clean:	
 	rm -rf obj
