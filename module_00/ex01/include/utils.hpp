@@ -5,7 +5,7 @@
 
 bool isInRange(std::string input);
 bool isNumeric(std::string s);
-std::string prompt(std::string_view msg = "> ",
+std::string prompt(std::string msg = "> ",
 				   bool (*validator_fn)(std::string) = NULL,
 				   std::string err_msg = "",
 				   bool reprompt_on_fail = false);

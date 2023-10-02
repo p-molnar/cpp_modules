@@ -1,6 +1,7 @@
 #include <iostream>
-#include <array>
 #include <iomanip>
+#include <cstdlib>
+#include <stdio.h>
 #include "utils.hpp"
 #include "class_constants.hpp"
 
@@ -59,16 +60,16 @@ class PhoneBook
 {
 private:
 	int m_last_contact_idx;
-	std::array<Contact, CAPACITY> m_contacts;
+	Contact m_contacts[CAPACITY];
 
 private:
 	void printContactListHeader()
 	{
 		const int column_count = 4;
-		std::array<std::string, column_count> column_name = {"index",
-															 "first name",
-															 "last name",
-															 "nickname"};
+		std::string column_name[column_count] = {"index",
+												"first name",
+												"last name",
+												"nickname"};
 
 		for (int i = 0; i < column_count; i++)
 			std::cout << std::setw(10) << column_name[i] << " | ";
@@ -124,6 +125,7 @@ public:
 		const int column_width = 10;
 		const int contact_field_count = 4;
 		std::string curr_field;
+		std::string field_value[contact_field_count];
 
 		printContactListHeader();
 
@@ -131,15 +133,16 @@ public:
 		{
 			Contact contact = m_contacts[i];
 			if (contact.isCreated())
-			{
-				std::array<std::string, contact_field_count> field_value =
-					{std::to_string(i),
-					 contact.getFirstName(),
-					 contact.getLastName(),
-					 contact.getNickname()};
+			{	char buff[8];
+				snprintf(buff, 8, "%d", i);
+				field_value[0] = static_cast<std::string>(buff);
+		 		field_value[1] = contact.getFirstName();
+		 		field_value[2] = contact.getLastName();
+		 		field_value[3] = contact.getNickname();
 
 				for (int i = 0; i < contact_field_count; i++)
 				{
+
 					curr_field = field_value[i];
 					std::cout << std::setw(column_width)
 							  << (curr_field.length() > 10
@@ -173,10 +176,10 @@ int main()
 		else if (command == "SEARCH")
 		{
 			phonebook.displayContactList();
-			contact_index = stoi(prompt("enter contact index: ",
+			contact_index = atoi(prompt("enter contact index: ",
 										&(isNumeric),
 										"invalid input\n",
-										true));
+										true).c_str());
 			phonebook.search(contact_index);
 		}
 		else if (command != "EXIT")
@@ -186,5 +189,5 @@ int main()
 			phonebook.displayAvailableCommands();
 		}
 	}
-	return (EXIT_SUCCESS);
+	return EXIT_SUCCESS;
 }
