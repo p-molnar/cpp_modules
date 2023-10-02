@@ -25,6 +25,7 @@ public:
 		m_secret = "";
 		m_is_created = false;
 	}
+
 	void create()
 	{
 		m_first_name = prompt("enter first name: ");
