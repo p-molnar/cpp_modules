@@ -1,17 +1,17 @@
 #include "Zombie.hpp"
 #include <iostream>
 
-Zombie::Zombie(std::string arg_name)
+Zombie::Zombie(std::string name)
 {
-	name = arg_name;
+	_name = name;
 }
 
 Zombie::~Zombie(void)
 {
-	std::cout << "destructing: " << name << std::endl;
+	std::cout << "destructing: " << _name << std::endl;
 }
 
 void Zombie::announce(void)
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
