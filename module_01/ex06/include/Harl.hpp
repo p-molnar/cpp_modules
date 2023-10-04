@@ -12,6 +12,7 @@ private:
 	void info(void);
 	void warning(void);
 	void error(void);
+	int getStartLevel(std::string level);
 };
 
 #endif

@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-int getStartLevel(std::string level)
+int Harl::getStartLevel(std::string level)
 {
 	const int level_count = 4;
 	std::string levels[level_count] = {"DEBUG",
@@ -20,7 +20,7 @@ int getStartLevel(std::string level)
 
 void Harl::complain(std::string level)
 {
-	const int start_level = getStartLevel(level);
+	const int start_level = Harl::getStartLevel(level);
 	switch (start_level)
 	{
 	case 0:
