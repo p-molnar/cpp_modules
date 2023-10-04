@@ -3,14 +3,16 @@
 #include "HumanB.hpp"
 #include <string>
 #include <iostream>
+#include <cstdlib>
 
-void f(int &i)
+void f(void)
 {
-	i++;
+	system("leaks violance");
 }
 
 int main(void)
 {
+	// atexit(f);
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
