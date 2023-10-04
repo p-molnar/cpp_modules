@@ -2,7 +2,7 @@
 #include <string>
 
 Weapon::Weapon(std::string type)
-	: type(type){};
+	: type(type) {}
 
 std::string Weapon::getType(void)
 {
