@@ -25,6 +25,9 @@ std::string prompt(std::string msg = "> ",
 	std::cout << msg;
 	std::string input;
 	std::getline(std::cin >> std::ws, input);
+	if (std::cin.eof())
+		exit(EXIT_SUCCESS);
+
 	if (reprompt_on_fail)
 	{
 		if (validator_fn && !validator_fn(input))
