@@ -4,7 +4,7 @@
 #include "HumanB.hpp"
 
 HumanB::HumanB(std::string name)
-	: name(name), weapon(nullptr) {}
+	: name(name), weapon(NULL) {}
 
 HumanB::HumanB(std::string name, Weapon *weapon)
 	: name(name), weapon(weapon) {}

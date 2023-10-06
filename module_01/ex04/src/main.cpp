@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
 
 int main(int argc, char *argv[])
 {
@@ -16,11 +17,11 @@ int main(int argc, char *argv[])
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 
-	std::ifstream in_file(in_file_name);
+	std::ifstream in_file(in_file_name.c_str());
 	if (in_file.is_open())
 	{
 		std::string out_file_name = in_file_name + ".replace";
-		std::ofstream out_file(out_file_name);
+		std::ofstream out_file(out_file_name.c_str());
 		if (out_file.is_open())
 		{
 			std::string content;
