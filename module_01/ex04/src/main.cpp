@@ -24,20 +24,30 @@ int main(int argc, char *argv[])
 		std::ofstream out_file(out_file_name.c_str());
 		if (out_file.is_open())
 		{
-			std::string content;
-			std::string new_string;
-			while (getline(in_file, content))
+			std::string line;
+			std::string line_replaced;
+			int s1_len = s1.length();
+			int len;
+			while (std::getline(in_file, line))
 			{
-				size_t position = content.find(s1);
-				while (position != std::string::npos && s1 != "")
+				line_replaced = "";
+				int i = 0;
+				char *line_c_str = (char *)line.c_str();
+				len = line.length();
+				std::string tmp;
+				while (i < len)
 				{
-					new_string = content.substr(0, position);
-					new_string += s2;
-					new_string += content.substr(position + s1.length(), content.length());
-					content = new_string;
-					position = content.find(s1);
+					tmp = &line_c_str[i];
+					if (tmp.find(s1) != 0 || s1 == "")
+						line_replaced += line_c_str[i];
+					else
+					{
+						line_replaced += s2;
+						i += s1_len - 1;
+					}
+					i++;
 				}
-				out_file << content;
+				out_file << line_replaced << (in_file.eof() ? "" : "\n");
 			}
 		}
 		else
