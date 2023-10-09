@@ -5,14 +5,8 @@
 #include <iostream>
 #include <cstdlib>
 
-void f(void)
-{
-	system("leaks violance");
-}
-
 int main(void)
 {
-	// atexit(f);
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
