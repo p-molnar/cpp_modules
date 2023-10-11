@@ -18,7 +18,7 @@ Fixed::Fixed(Fixed &num)
 // copy assignment operator overload
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
-	(void)fixed;
+	fixed_point_val = fixed.fixed_point_val;
 	std::cout << "Copy assignment operator called\n";
 	return *this;
 }
