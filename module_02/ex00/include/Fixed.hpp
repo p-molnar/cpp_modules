@@ -1,3 +1,6 @@
+#ifndef FIXED_HPP
+#include FIXED_HPP
+
 class Fixed
 {
 private:
@@ -13,3 +16,5 @@ public:
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 };
+
+#endif
