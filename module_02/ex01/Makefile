@@ -5,8 +5,11 @@ CPPFLAGS+=	-I$(INCLUDE)
 CPPFLAGS+=	-MMD -MP
 LDFLAGS	?=
 INCLUDE	=	include/
-SRC		=	main.cpp		\
-			Fixed.cpp		\
+SRC		=	main.cpp					\
+			Fixed.cpp					\
+			Fixed_toFixedPoint.cpp		\
+			Fixed_toFloat.cpp			\
+			Fixed_toInt.cpp				\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
