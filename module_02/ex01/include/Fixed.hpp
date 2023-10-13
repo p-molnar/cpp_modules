@@ -7,6 +7,7 @@ class Fixed
 {
 private:
 	int fixed_point_val;
+	int width;
 	static const int fractional_bits = 8;
 
 	int toFixedPoint(const int val,

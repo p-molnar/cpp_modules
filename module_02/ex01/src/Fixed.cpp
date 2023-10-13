@@ -6,17 +6,15 @@
 // default constructor for float
 Fixed::Fixed(const float n)
 {
-	fixed_point_val = Fixed::toFixedPoint(n,
-										  sizeof(fixed_point_val) * BIT_SIZE,
-										  fractional_bits);
+	width = sizeof(fixed_point_val) * BIT_SIZE;
+	fixed_point_val = Fixed::toFixedPoint(n, width, fractional_bits);
 }
 
 // default constructor for int
 Fixed::Fixed(const int n)
 {
-	fixed_point_val = toFixedPoint(n,
-								   sizeof(fixed_point_val) * BIT_SIZE,
-								   fractional_bits);
+	width = sizeof(fixed_point_val) * BIT_SIZE;
+	fixed_point_val = toFixedPoint(n, width, fractional_bits);
 }
 
 // float Fixed::operator<<(int fixed_point_val)

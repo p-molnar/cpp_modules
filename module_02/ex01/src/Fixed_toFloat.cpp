@@ -5,7 +5,6 @@ float Fixed::toFloat(void) const
 	float f = 0;
 	int curr_place_val;
 	int curr_bin_val;
-	int width = sizeof(fixed_point_val) * BIT_SIZE;
 	bool is_negative = fixed_point_val & (1 << (width - fractional_bits));
 
 	for (int i = width; i >= 0; i--)
