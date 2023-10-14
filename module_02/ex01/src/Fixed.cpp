@@ -1,7 +1,8 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <iomanip>
 
-#define BIT_SIZE 8
+#define BITE_SIZE 8
 
 // default constructor for obj declaration
 Fixed::Fixed(void)
