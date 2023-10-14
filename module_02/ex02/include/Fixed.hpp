@@ -17,7 +17,6 @@ private:
 
 	int toFixedPoint(const int n, const int width, const int bin_point_pos);
 	int toFixedPoint(const float n, const int width, const int bin_point_pos);
-	int getTwosComplement(int binary, int width, const int bin_point_pos) const;
 
 public:
 	// constructors
@@ -63,6 +62,9 @@ public:
 	static const Fixed &min(const Fixed &obj1, const Fixed &obj2);
 	static Fixed &max(Fixed &obj1, Fixed &obj2);
 	static const Fixed &max(const Fixed &obj1, const Fixed &obj2);
+
+	// utility function
+	static int getTwosComplement(int n, int width, int bin_point_pos);
 };
 
 std::ostream &operator<<(std::ostream &os, const Fixed &obj);

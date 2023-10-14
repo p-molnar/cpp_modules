@@ -1,7 +1,7 @@
 #include "Fixed.hpp"
 #include <iostream>
 
-int Fixed::getTwosComplement(int n, int width, const int bin_point_pos) const
+int Fixed::getTwosComplement(int n, int width, const int bin_point_pos)
 {
 	int twos_complement = 0;
 	int integer_bits = ~n;
