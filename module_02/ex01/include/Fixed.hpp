@@ -3,6 +3,10 @@
 
 #define BIT_SIZE 8
 
+#include <iostream>
+
+void print_bin(int bin);
+
 class Fixed
 {
 private:
@@ -10,22 +14,16 @@ private:
 	int width;
 	static const int fractional_bits = 8;
 
-	int toFixedPoint(const int val,
-					 const int width,
-					 const int bin_point_pos);
-
-	int toFixedPoint(const float val,
-					 const int width,
-					 const int precision_point_pos);
-
-	int getTwosComplement(int binary);
+	int toFixedPoint(const int val, const int width, const int bin_point_pos);
+	int toFixedPoint(const float val, const int width, const int precision_point_pos);
+	int getTwosComplement(int binary, int width, const int bin_point_pos);
 
 public:
+	Fixed(void);
 	Fixed(const float val);
-	Fixed(const int val);
-	Fixed(Fixed &num);
+	Fixed(const int n);
 
-	float operator<<(int fixed_point_val);
+	Fixed(Fixed const &num);
 	Fixed &operator=(const Fixed &fraction);
 
 	~Fixed(void);

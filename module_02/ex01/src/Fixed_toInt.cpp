@@ -1,23 +1,25 @@
 #include "Fixed.hpp"
+#include <iostream>
 
 int Fixed::toInt(void) const
 {
 	int n = 0;
-	int curr_place_val;
-	int curr_bin_val;
-	bool is_negative = fixed_point_val & (1 << (width - fractional_bits));
+	int place_val;
+	int bin_val;
+	bool is_first_iter = true;
 
 	for (int i = width - 1; i >= fractional_bits; i--)
 	{
-		curr_place_val = 1 << (i - fractional_bits);
-		curr_bin_val = (fixed_point_val >> (i - fractional_bits)) & 1;
-		if (i >= fractional_bits)
+		place_val = 1 << (i - fractional_bits);
+		bin_val = ((fixed_point_val >> i) & 1);
+
+		if (is_first_iter)
 		{
-			if (i == sizeof(fixed_point_val) && is_negative)
-				n -= curr_place_val >> fractional_bits;
-			else
-				n += curr_bin_val * (curr_place_val >> fractional_bits);
+			n -= bin_val * place_val;
+			is_first_iter = false;
 		}
+		else
+			n += bin_val * place_val;
 	}
 	return n;
 }
