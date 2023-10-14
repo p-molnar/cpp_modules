@@ -1,35 +1,30 @@
 #include "Fixed.hpp"
 
-float Fixed::toFloat(void) const
+float Fixed::toFloat() const
 {
-	float n = 0;
-	int place_val, bin_val;
-	bool is_first_iter = true;
+	float result = 0.0f;
 	bool is_negative;
+	bool first_iter = true;
 
 	for (int i = width - 1; i >= 0; i--)
 	{
-		bin_val = ((fixed_point_val >> i) & 1);
+		int bin_val = (fixed_point_val >> i) & 1;
+		int place_val = 1 << ABS((i - fractional_bits));
+
 		if (i >= fractional_bits)
 		{
-			place_val = 1 << (i - fractional_bits);
-			if (is_first_iter)
+			if (first_iter)
 			{
-				n -= bin_val * place_val;
-				is_first_iter = false;
-				is_negative = n < 0;
+				result -= bin_val * place_val;
+				first_iter = false;
+				is_negative = bin_val;
 			}
 			else
-				n += bin_val * place_val;
+				result += bin_val * place_val;
 		}
 		else if (bin_val)
-		{
-			place_val = 1 << (fractional_bits - i);
-			if (is_negative)
-				n -= 1.0f / (bin_val * place_val);
-			else
-				n += 1.0f / (bin_val * place_val);
-		}
+			result += (is_negative ? -1.0f : 1.0f) / (bin_val * place_val);
 	}
-	return n;
+
+	return result;
 }

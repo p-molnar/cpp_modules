@@ -2,6 +2,7 @@
 #define FIXED_HPP
 
 #define BIT_SIZE 8
+#define ABS(N) ((N < 0) ? (-N) : (N))
 
 #include <iostream>
 
