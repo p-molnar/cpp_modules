@@ -2,14 +2,6 @@
 #include <cstdlib>
 #include "Fixed.hpp"
 
-std::ostream &operator<<(std::ostream &os, const Fixed &obj)
-{
-	// Fixed tmp(0);
-	// tmp.setRawBits(fixed_point_val);
-	os << obj.toFloat();
-	return os;
-}
-
 int main(void)
 {
 	Fixed a;
@@ -26,5 +18,5 @@ int main(void)
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	return 0;
+	return EXIT_SUCCESS;
 }

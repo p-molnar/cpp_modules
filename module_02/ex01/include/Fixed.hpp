@@ -14,25 +14,25 @@ private:
 	int width;
 	static const int fractional_bits = 8;
 
-	int toFixedPoint(const int val, const int width, const int bin_point_pos);
-	int toFixedPoint(const float val, const int width, const int precision_point_pos);
+	int toFixedPoint(const int n, const int width, const int bin_point_pos);
+	int toFixedPoint(const float n, const int width, const int bin_point_pos);
 	int getTwosComplement(int binary, int width, const int bin_point_pos);
 
 public:
 	Fixed(void);
 	Fixed(const float val);
 	Fixed(const int n);
-
-	Fixed(Fixed const &num);
-	Fixed &operator=(const Fixed &fraction);
-
+	Fixed(Fixed const &obj);
+	Fixed &operator=(const Fixed &obj);
 	~Fixed(void);
 
 	int getRawBits(void) const;
-	void setRawBits(int const raw);
+	void setRawBits(const int n);
 
 	float toFloat(void) const;
 	int toInt(void) const;
 };
+
+std::ostream &operator<<(std::ostream &os, const Fixed &obj);
 
 #endif

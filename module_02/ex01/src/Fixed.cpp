@@ -6,13 +6,13 @@
 // default constructor for obj declaration
 Fixed::Fixed(void)
 {
-	std::cout << "default constructor called\n";
+	std::cout << "Default constructor called\n";
 }
 
 // default constructor for float
 Fixed::Fixed(const float n)
 {
-	std::cout << "float constructor called\n";
+	std::cout << "Float constructor called\n";
 	width = sizeof(fixed_point_val) * BIT_SIZE;
 	fixed_point_val = Fixed::toFixedPoint(n, width, fractional_bits);
 }
@@ -20,24 +20,24 @@ Fixed::Fixed(const float n)
 // default constructor for int
 Fixed::Fixed(const int n)
 {
-	std::cout << "int constructor called\n";
+	std::cout << "Int constructor called\n";
 	width = sizeof(fixed_point_val) * BIT_SIZE;
 	fixed_point_val = toFixedPoint(n, width, fractional_bits);
 }
 
 // copy constructor
-Fixed::Fixed(const Fixed &num)
+Fixed::Fixed(Fixed const &obj)
 {
 	std::cout << "Copy constructor called\n";
-	fixed_point_val = num.fixed_point_val;
+	fixed_point_val = obj.fixed_point_val;
 	width = sizeof(fixed_point_val) * BIT_SIZE;
 }
 
 // copy assignment operator overload
-Fixed &Fixed::operator=(const Fixed &fixed)
+Fixed &Fixed::operator=(const Fixed &obj)
 {
 	std::cout << "Copy assignment operator called\n";
-	fixed_point_val = fixed.fixed_point_val;
+	fixed_point_val = obj.fixed_point_val;
 	width = sizeof(fixed_point_val) * BIT_SIZE;
 	return *this;
 }
@@ -54,18 +54,24 @@ int Fixed::getRawBits(void) const
 	return fixed_point_val;
 }
 
-void Fixed::setRawBits(int const raw)
+void Fixed::setRawBits(const int n)
 {
 	std::cout << "setRawBits member function called\n";
-	fixed_point_val = raw;
+	fixed_point_val = n;
 }
 
-void print_bin(int bin)
+std::ostream &operator<<(std::ostream &os, const Fixed &obj)
+{
+	os << obj.toFloat();
+	return os;
+}
+
+void print_bin(int n)
 {
 	int j = 1;
 	for (int i = 31; i >= 0; i--)
 	{
-		std::cout << ((bin >> i) & 1);
+		std::cout << ((n >> i) & 1);
 		if (j > 0 && !(j % 8))
 			std::cout << "  ";
 		j++;
