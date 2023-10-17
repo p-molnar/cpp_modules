@@ -11,6 +11,7 @@ SRC		=	main.cpp										\
 			fixed/Fixed_toFixedPoint.cpp				\
 			fixed/Fixed_toFloat.cpp					\
 			fixed/Fixed_toInt.cpp						\
+			fixed/Fixed_printBin.cpp						\
 			fixed/Fixed_logical_operators.cpp			\
 			fixed/Fixed_arithmetic_operators.cpp		\
 			fixed/Fixed_decrement_operators.cpp		\

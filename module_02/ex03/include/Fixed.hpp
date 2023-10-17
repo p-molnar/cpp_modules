@@ -1,7 +1,7 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
-#define BIT_SIZE 8
+#define BITE_SIZE 8
 #define ABS(N) ((N < 0) ? (-N) : (N))
 
 #include <iostream>
@@ -11,12 +11,12 @@ void print_bin(int bin);
 class Fixed
 {
 private:
-	int num;
+	int fpv;
 	int width;
 	static const int fractional_bits = 8;
 
-	static int toFixedPoint(const int n, const int width, const int bin_point_pos);
-	static int toFixedPoint(const float n, const int width, const int bin_point_pos);
+	int toFixedPoint(const int n, const int width, const int bin_point_pos);
+	int toFixedPoint(const float n, const int width, const int bin_point_pos);
 
 public:
 	// constructors
@@ -66,6 +66,7 @@ public:
 
 	// utility function
 	static int getTwosComplement(int n, int width, int bin_point_pos);
+	static void printBin(int n);
 };
 
 std::ostream &operator<<(std::ostream &os, const Fixed &obj);
