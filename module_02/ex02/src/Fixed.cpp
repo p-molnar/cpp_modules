@@ -7,36 +7,36 @@
 // default constructor for obj declaration
 Fixed::Fixed(void)
 {
-	width = sizeof(fixed_point_val) * BITE_SIZE;
-	fixed_point_val = 0;
+	width = sizeof(num) * BITE_SIZE;
+	num = 0;
 }
 
 // default constructor for float
 Fixed::Fixed(const float n)
 {
-	width = sizeof(fixed_point_val) * BITE_SIZE;
-	fixed_point_val = Fixed::toFixedPoint(n, width, fractional_bits);
+	width = sizeof(num) * BITE_SIZE;
+	num = Fixed::toFixedPoint(n, width, fractional_bits);
 }
 
 // default constructor for int
 Fixed::Fixed(const int n)
 {
-	width = sizeof(fixed_point_val) * BITE_SIZE;
-	fixed_point_val = toFixedPoint(n, width, fractional_bits);
+	width = sizeof(num) * BITE_SIZE;
+	num = toFixedPoint(n, width, fractional_bits);
 }
 
 // copy constructor
 Fixed::Fixed(Fixed const &obj)
 {
-	fixed_point_val = obj.fixed_point_val;
-	width = sizeof(fixed_point_val) * BITE_SIZE;
+	num = obj.num;
+	width = sizeof(num) * BITE_SIZE;
 }
 
 // copy assignment operator overload
 Fixed &Fixed::operator=(const Fixed &obj)
 {
-	fixed_point_val = obj.fixed_point_val;
-	width = sizeof(fixed_point_val) * BITE_SIZE;
+	num = obj.num;
+	width = sizeof(num) * BITE_SIZE;
 	return *this;
 }
 
@@ -54,12 +54,12 @@ int Fixed::getFractionalBits(void) const
 
 int Fixed::getRawBits(void) const
 {
-	return fixed_point_val;
+	return num;
 }
 
 void Fixed::setRawBits(const int n)
 {
-	fixed_point_val = n;
+	num = n;
 }
 
 std::ostream &operator<<(std::ostream &os, const Fixed &obj)

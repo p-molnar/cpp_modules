@@ -3,23 +3,23 @@
 
 // default constructor
 Fixed::Fixed(void)
-	: fixed_point_val(0)
+	: num(0)
 {
 	std::cout << "Default constructor called\n";
 }
 
 // copy constructor
-Fixed::Fixed(Fixed &num)
-	: fixed_point_val(num.fixed_point_val)
+Fixed::Fixed(Fixed &obj)
 {
 	std::cout << "Copy constructor called\n";
+	num = obj.getRawBits();
 }
 
 // copy assignment operator overload
-Fixed &Fixed::operator=(const Fixed &fixed)
+Fixed &Fixed::operator=(const Fixed &obj)
 {
-	fixed_point_val = fixed.fixed_point_val;
 	std::cout << "Copy assignment operator called\n";
+	num = obj.getRawBits();
 	return *this;
 }
 
@@ -32,11 +32,11 @@ int Fixed::getRawBits(void) const
 {
 
 	std::cout << "getRawBits member function called\n";
-	return fixed_point_val;
+	return num;
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called\n";
-	fixed_point_val = raw;
+	num = raw;
 }

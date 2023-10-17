@@ -11,7 +11,7 @@ void print_bin(int bin);
 class Fixed
 {
 private:
-	int fixed_point_val;
+	int num;
 	int width;
 	static const int fractional_bits = 8;
 

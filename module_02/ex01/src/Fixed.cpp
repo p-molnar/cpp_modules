@@ -14,32 +14,32 @@ Fixed::Fixed(void)
 Fixed::Fixed(const float n)
 {
 	std::cout << "Float constructor called\n";
-	width = sizeof(fixed_point_val) * BITE_SIZE;
-	fixed_point_val = Fixed::toFixedPoint(n, width, fractional_bits);
+	width = sizeof(num) * BITE_SIZE;
+	num = Fixed::toFixedPoint(n, width, fractional_bits);
 }
 
 // default constructor for int
 Fixed::Fixed(const int n)
 {
 	std::cout << "Int constructor called\n";
-	width = sizeof(fixed_point_val) * BITE_SIZE;
-	fixed_point_val = toFixedPoint(n, width, fractional_bits);
+	width = sizeof(num) * BITE_SIZE;
+	num = toFixedPoint(n, width, fractional_bits);
 }
 
 // copy constructor
 Fixed::Fixed(Fixed const &obj)
 {
 	std::cout << "Copy constructor called\n";
-	fixed_point_val = obj.fixed_point_val;
-	width = sizeof(fixed_point_val) * BITE_SIZE;
+	num = obj.num;
+	width = sizeof(num) * BITE_SIZE;
 }
 
 // copy assignment operator overload
 Fixed &Fixed::operator=(const Fixed &obj)
 {
 	std::cout << "Copy assignment operator called\n";
-	fixed_point_val = obj.fixed_point_val;
-	width = sizeof(fixed_point_val) * BITE_SIZE;
+	num = obj.num;
+	width = sizeof(num) * BITE_SIZE;
 	return *this;
 }
 
@@ -52,13 +52,13 @@ int Fixed::getRawBits(void) const
 {
 
 	std::cout << "getRawBits member function called\n";
-	return fixed_point_val;
+	return num;
 }
 
 void Fixed::setRawBits(const int n)
 {
 	std::cout << "setRawBits member function called\n";
-	fixed_point_val = n;
+	num = n;
 }
 
 std::ostream &operator<<(std::ostream &os, const Fixed &obj)

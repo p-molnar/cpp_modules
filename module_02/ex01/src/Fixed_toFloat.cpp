@@ -8,7 +8,7 @@ float Fixed::toFloat() const
 
 	for (int i = width - 1; i >= 0; i--)
 	{
-		int bin_val = (fixed_point_val >> i) & 1;
+		int bin_val = (num >> i) & 1;
 		int place_val = 1 << ABS((i - fractional_bits));
 
 		if (i >= fractional_bits)
