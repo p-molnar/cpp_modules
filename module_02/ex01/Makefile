@@ -10,6 +10,7 @@ SRC		=	main.cpp					\
 			Fixed_toFixedPoint.cpp		\
 			Fixed_toFloat.cpp			\
 			Fixed_toInt.cpp				\
+			Fixed_printBin.cpp			\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
