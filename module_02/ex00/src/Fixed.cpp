@@ -3,7 +3,7 @@
 
 // default constructor
 Fixed::Fixed(void)
-	: num(0)
+	: fpv(0)
 {
 	std::cout << "Default constructor called\n";
 }
@@ -12,14 +12,14 @@ Fixed::Fixed(void)
 Fixed::Fixed(Fixed &obj)
 {
 	std::cout << "Copy constructor called\n";
-	num = obj.getRawBits();
+	fpv = obj.getRawBits();
 }
 
 // copy assignment operator overload
 Fixed &Fixed::operator=(const Fixed &obj)
 {
 	std::cout << "Copy assignment operator called\n";
-	num = obj.getRawBits();
+	fpv = obj.getRawBits();
 	return *this;
 }
 
@@ -32,11 +32,11 @@ int Fixed::getRawBits(void) const
 {
 
 	std::cout << "getRawBits member function called\n";
-	return num;
+	return fpv;
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called\n";
-	num = raw;
+	fpv = raw;
 }
