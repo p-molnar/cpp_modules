@@ -1,7 +1,7 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
-#define BIT_SIZE 8
+#define BITE_SIZE 8
 #define ABS(N) ((N < 0) ? (-N) : (N))
 
 #include <iostream>
@@ -11,7 +11,7 @@ void print_bin(int bin);
 class Fixed
 {
 private:
-	int num;
+	int fpv;
 	int width;
 	static const int fractional_bits = 8;
 
@@ -24,18 +24,20 @@ public:
 	Fixed(const float val);
 	Fixed(const int n);
 
-	// copy & assign operators
+	// copy & assignment operators
 	Fixed(Fixed const &obj);
 	Fixed &operator=(const Fixed &obj);
 
 	// destructor
 	~Fixed(void);
 
+	// setters & getters
+	void setRawBits(const int n);
 	int getRawBits(void) const;
 	int getWidth(void) const;
 	int getFractionalBits(void) const;
-	void setRawBits(const int n);
 
+	// converters
 	float toFloat(void) const;
 	int toInt(void) const;
 
@@ -53,6 +55,7 @@ public:
 	Fixed operator*(const Fixed &rhs) const;
 	Fixed operator/(const Fixed &rhs) const;
 
+	// post & pre in/decrement operator overloads
 	Fixed operator++(void);
 	Fixed operator++(int);
 	Fixed operator--(void);
@@ -65,8 +68,10 @@ public:
 
 	// utility function
 	static int getTwosComplement(int n, int width, int bin_point_pos);
+	static void printBin(int n);
 };
 
+// insertion operator overload
 std::ostream &operator<<(std::ostream &os, const Fixed &obj);
 
 #endif

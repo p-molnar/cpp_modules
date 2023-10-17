@@ -2,30 +2,30 @@
 
 bool Fixed::operator==(const Fixed &rhs) const
 {
-	return num == rhs.getRawBits();
+	return fpv == rhs.getRawBits();
 }
 
 bool Fixed::operator!=(const Fixed &rhs) const
 {
-	return num != rhs.getRawBits();
+	return fpv != rhs.getRawBits();
 }
 
 bool Fixed::operator<(const Fixed &rhs) const
 {
-	return num < rhs.getRawBits();
+	return fpv < rhs.getRawBits();
 }
 
 bool Fixed::operator>(const Fixed &rhs) const
 {
-	return num > rhs.getRawBits();
+	return fpv > rhs.getRawBits();
 }
 
 bool Fixed::operator<=(const Fixed &rhs) const
 {
-	return num <= rhs.getRawBits();
+	return fpv <= rhs.getRawBits();
 }
 
 bool Fixed::operator>=(const Fixed &rhs) const
 {
-	return num >= rhs.getRawBits();
+	return fpv >= rhs.getRawBits();
 }

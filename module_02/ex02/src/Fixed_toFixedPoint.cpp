@@ -20,7 +20,7 @@ int Fixed::getTwosComplement(int n, int width, const int bin_point_pos)
 
 int Fixed::toFixedPoint(const float n, const int width, const int bin_point_pos)
 {
-	int fpv = 0;
+	int result = 0;
 	float num = ABS(n);
 
 	for (int i = width - 1; i >= 0; i--)
@@ -30,18 +30,18 @@ int Fixed::toFixedPoint(const float n, const int width, const int bin_point_pos)
 
 		if (place_val <= num)
 		{
-			fpv |= (1 << i);
+			result |= (1 << i);
 			num -= place_val;
 		}
 	}
 
-	return (n < 0) ? getTwosComplement(fpv, width, bin_point_pos) : fpv;
+	return (n < 0) ? getTwosComplement(result, width, bin_point_pos) : result;
 }
 
 int Fixed::toFixedPoint(const int n, const int width, const int bin_point_pos)
 {
-	int fpv = 0;
-	int num = std::abs(n);
+	int result = 0;
+	int num = ABS(n);
 
 	for (int i = width - 1; i >= bin_point_pos; i--)
 	{
@@ -49,10 +49,10 @@ int Fixed::toFixedPoint(const int n, const int width, const int bin_point_pos)
 
 		if (place_val <= num)
 		{
-			fpv |= (1 << i);
+			result |= (1 << i);
 			num -= place_val;
 		}
 	}
 
-	return (n < 0) ? getTwosComplement(fpv, width, bin_point_pos) : fpv;
+	return (n < 0) ? getTwosComplement(result, width, bin_point_pos) : result;
 }
