@@ -11,10 +11,7 @@ Fixed Fixed::operator+(const Fixed &rhs) const
 Fixed Fixed::operator-(const Fixed &rhs) const
 {
 	Fixed result;
-	result.setRawBits(
-		fpv + getTwosComplement(rhs.getRawBits(),
-								rhs.getWidth(),
-								rhs.getFractionalBits()));
+	result.setRawBits(fpv - rhs.getRawBits());
 	return result;
 }
 
