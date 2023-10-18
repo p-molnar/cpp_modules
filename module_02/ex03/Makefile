@@ -7,21 +7,21 @@ LDFLAGS	?=
 INCLUDE	=	include/ 
 INCLUDE	+=	../ex02/include
 SRC		=	main.cpp										\
-			fixed/Fixed.cpp							\
-			fixed/Fixed_toFixedPoint.cpp				\
-			fixed/Fixed_toFloat.cpp					\
-			fixed/Fixed_toInt.cpp						\
+			fixed/Fixed.cpp									\
+			fixed/Fixed_toFixedPoint.cpp					\
+			fixed/Fixed_toFloat.cpp							\
+			fixed/Fixed_toInt.cpp							\
 			fixed/Fixed_printBin.cpp						\
-			fixed/Fixed_logical_operators.cpp			\
-			fixed/Fixed_arithmetic_operators.cpp		\
-			fixed/Fixed_decrement_operators.cpp		\
-			fixed/Fixed_increment_operators.cpp		\
-			fixed/Fixed_min.cpp						\
-			fixed/Fixed_max.cpp						\
-			fixed/Fixed_abs.cpp						\
-			point/Point.cpp							\
-			Triangle/Triangle.cpp							\
-			Triangle/Triangle_Area.cpp							\
+			fixed/Fixed_logical_operators.cpp				\
+			fixed/Fixed_arithmetic_operators.cpp			\
+			fixed/Fixed_decrement_operators.cpp				\
+			fixed/Fixed_increment_operators.cpp				\
+			fixed/Fixed_min.cpp								\
+			fixed/Fixed_max.cpp								\
+			fixed/Fixed_abs.cpp								\
+			point/Point.cpp									\
+			triangle/Triangle.cpp							\
+			triangle/Triangle_Area.cpp						\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
@@ -44,4 +44,4 @@ fclean:	clean
 
 re:	fclean all
 
-.PHONY:	all clean fclean re test
+.PHONY:	all clean fclean re 
