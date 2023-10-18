@@ -10,6 +10,7 @@ SRC		=	main.cpp										\
 			ClapTrap_attack.cpp								\
 			ClapTrap_beRepaired.cpp							\
 			ClapTrap_takeDamage.cpp							\
+			ClapTrap_getters.cpp							\
 			utility.cpp							\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))

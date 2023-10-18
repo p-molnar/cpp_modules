@@ -38,3 +38,11 @@ ClapTrap::~ClapTrap(void)
 {
 	std::cout << "Destructor called\n";
 }
+
+std::ostream &operator<<(std::ostream &os, const ClapTrap &obj)
+{
+	std::cout << "health_pt: " << obj.getHealthPt() << '\n';
+	std::cout << "energy_pt: " << obj.getEnergyPt() << '\n';
+	std::cout << "damage_pt: " << obj.getDamagePt() << '\n';
+	return os;
+}

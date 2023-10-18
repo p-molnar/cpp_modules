@@ -7,8 +7,8 @@ class ClapTrap
 {
 private:
 	std::string name;
-	int energy_pt;
 	int health_pt;
+	int energy_pt;
 	int damage_pt;
 
 public:
@@ -19,10 +19,17 @@ public:
 	~ClapTrap(void);
 
 public:
+	int getHealthPt(void) const;
+	int getEnergyPt(void) const;
+	int getDamagePt(void) const;
+
+public:
 	void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };
+
+std::ostream &operator<<(std::ostream &os, const ClapTrap &obj);
 
 int min(int n1, int n2);
 int max(int n1, int n2);

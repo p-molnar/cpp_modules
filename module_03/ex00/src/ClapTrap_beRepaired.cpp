@@ -3,17 +3,23 @@
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (health_pt == 0)
-		return;
-
-	if (static_cast<int>(amount) > energy_pt)
-		amount = energy_pt;
-
-	health_pt += amount;
-	energy_pt -= amount;
-
-	std::cout << "ClapTrap " << name
-			  << " repairs itself with " << amount << " points\n";
-	std::cout << "Current health point: " << health_pt << '\n';
-	std::cout << "Current energy point: " << energy_pt << '\n';
+	if (health_pt > 0 && (energy_pt - static_cast<int>(amount)) > 0)
+	{
+		std::cout << "ClapTrap " << name
+				  << " repairs itself with " << amount << " points\n";
+		health_pt += amount;
+		energy_pt -= amount;
+	}
+	else if (health_pt == 0)
+	{
+		std::cout << "ClapTrap " << name
+				  << " can't repairs itself with " << amount
+				  << " points, because it's dead\n";
+	}
+	else
+	{
+		std::cout << "ClapTrap " << name
+				  << " can't repairs itself with " << amount << " points "
+				  << "because of insufficient amount of energy points\n";
+	}
 }
