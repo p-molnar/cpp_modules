@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cstdlib>
 
 int Fixed::getTwosComplement(int n, int width, const int bin_point_pos)
 {

@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include <cassert>
 
 Fixed Fixed::operator+(const Fixed &rhs) const
 {
@@ -20,7 +21,8 @@ Fixed Fixed::operator-(const Fixed &rhs) const
 Fixed Fixed::operator*(const Fixed &rhs) const
 {
 	Fixed result;
-	int64_t num_result = fpv * rhs.getRawBits();
+	long int num_result = static_cast<long int>(fpv) *
+						  static_cast<long int>(rhs.getRawBits());
 	result.setRawBits(num_result >> fractional_bits);
 	return result;
 }
@@ -30,7 +32,8 @@ Fixed Fixed::operator/(const Fixed &rhs) const
 	assert(rhs.getRawBits() != 0 && "Zero Division");
 
 	Fixed result;
-	int64_t num_result = (fpv << fractional_bits) / rhs.getRawBits();
+	long int num_result = (static_cast<long int>(fpv) << fractional_bits) /
+						  static_cast<long int>(rhs.getRawBits());
 	result.setRawBits(num_result);
 	return result;
 }
