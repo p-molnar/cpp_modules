@@ -3,7 +3,7 @@
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (health_pt > 0 && (energy_pt - static_cast<int>(amount)) > 0)
+	if (health_pt > 0 && (energy_pt - static_cast<int>(amount)) >= 0)
 	{
 		std::cout << "ClapTrap " << name
 				  << " repairs itself with " << amount << " points\n";
