@@ -7,7 +7,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (health_pt > 0)
 	{
 		std::cout << name << " takes damage, and loses "
-				  << amount << " of health points\n";
+				  << amount << " of health point(s)\n";
 		health_pt -= min(health_pt, amount);
 	}
 	else

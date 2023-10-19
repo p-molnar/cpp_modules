@@ -10,12 +10,12 @@ ClapTrap::ClapTrap(void)
 ClapTrap::ClapTrap(std::string name)
 	: name(name), health_pt(10), energy_pt(10), damage_pt(1)
 {
-	std::cout << "String constructor of " << name << " called\n";
+	std::cout << "String constructor of ClapTrap " << name << " called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
-	std::cout << "Copy constructor of " << name << " called\n";
+	std::cout << "Copy constructor of ClapTrap " << name << " called\n";
 	name = obj.name;
 	health_pt = obj.health_pt;
 	energy_pt = obj.energy_pt;
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(const ClapTrap &obj)
 }
 const ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 {
-	std::cout << "Copy assignment constructor of " << name << " called\n";
+	std::cout << "Copy assignment constructor of ClapTrap " << name << " called\n";
 	name = obj.name;
 	health_pt = obj.health_pt;
 	energy_pt = obj.energy_pt;
@@ -33,7 +33,7 @@ const ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Destructor of " << name << " called\n";
+	std::cout << "Destructor of ClapTrap " << name << " called\n";
 }
 
 std::ostream &operator<<(std::ostream &os, const ClapTrap &obj)
