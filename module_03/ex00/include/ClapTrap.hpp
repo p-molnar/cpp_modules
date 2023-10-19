@@ -12,13 +12,14 @@ private:
 	int damage_pt;
 
 public:
-	ClapTrap(std::string);
+	ClapTrap(std::string name);
 	ClapTrap(void);
 	ClapTrap(const ClapTrap &obj);
 	const ClapTrap &operator=(const ClapTrap &obj);
 	~ClapTrap(void);
 
 public:
+	const std::string &getName(void) const;
 	int getHealthPt(void) const;
 	int getEnergyPt(void) const;
 	int getDamagePt(void) const;

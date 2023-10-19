@@ -8,39 +8,37 @@ ClapTrap::ClapTrap(void)
 }
 
 ClapTrap::ClapTrap(std::string name)
+	: name(name), health_pt(10), energy_pt(10), damage_pt(1)
 {
-	std::cout << "String constructor called\n";
-	this->name = name;
-	this->health_pt = 10;
-	this->energy_pt = 10;
-	this->damage_pt = 1;
+	std::cout << "String constructor of " << name << " called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
-	std::cout << "Copy constructor called\n";
-	this->name = obj.name;
-	this->health_pt = obj.health_pt;
-	this->energy_pt = obj.energy_pt;
-	this->damage_pt = obj.damage_pt;
+	std::cout << "Copy constructor of " << name << " called\n";
+	name = obj.name;
+	health_pt = obj.health_pt;
+	energy_pt = obj.energy_pt;
+	damage_pt = obj.damage_pt;
 }
 const ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 {
-	std::cout << "Copy assignment called\n";
-	this->name = obj.name;
-	this->health_pt = obj.health_pt;
-	this->energy_pt = obj.energy_pt;
-	this->damage_pt = obj.damage_pt;
+	std::cout << "Copy assignment constructor of " << name << " called\n";
+	name = obj.name;
+	health_pt = obj.health_pt;
+	energy_pt = obj.energy_pt;
+	damage_pt = obj.damage_pt;
 	return *this;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Destructor called\n";
+	std::cout << "Destructor of " << name << " called\n";
 }
 
 std::ostream &operator<<(std::ostream &os, const ClapTrap &obj)
 {
+	std::cout << "Name: " << obj.getName() << '\n';
 	std::cout << "health_pt: " << obj.getHealthPt() << '\n';
 	std::cout << "energy_pt: " << obj.getEnergyPt() << '\n';
 	std::cout << "damage_pt: " << obj.getDamagePt() << '\n';
