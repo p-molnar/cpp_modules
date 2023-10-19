@@ -4,7 +4,7 @@
 
 ClapTrap::ClapTrap(void)
 {
-	std::cout << "Default constructor called\n";
+	std::cout << "Default constructor of ClapTrap called\n";
 }
 
 ClapTrap::ClapTrap(std::string name)
