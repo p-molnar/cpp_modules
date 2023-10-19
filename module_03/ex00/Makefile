@@ -11,6 +11,7 @@ SRC		=	main.cpp										\
 			ClapTrap_beRepaired.cpp							\
 			ClapTrap_takeDamage.cpp							\
 			ClapTrap_getters.cpp							\
+			ClapTrap_setters.cpp							\
 			ClapTrap_utility.cpp							\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))

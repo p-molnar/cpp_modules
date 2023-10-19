@@ -25,6 +25,12 @@ public:
 	int getDamagePt(void) const;
 
 public:
+	void setName(const std::string &name);
+	void setEnergyPt(int energy_pt);
+	void setHealthPt(int health_pt);
+	void setDamagePt(int damage_pt);
+
+public:
 	void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
