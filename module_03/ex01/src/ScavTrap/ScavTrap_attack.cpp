@@ -1,6 +1,4 @@
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include <string>
 #include <iostream>
 
 void ScavTrap::attack(const std::string &target)
@@ -13,7 +11,8 @@ void ScavTrap::attack(const std::string &target)
 	}
 	else if (this->getHealthPt() <= 0)
 	{
-		std::cout << "ScavTrap " << this->getName() << " can't attack because it's dead\n";
+		std::cout << "ScavTrap " << this->getName()
+				  << " can't attack because it's dead\n";
 	}
 	else
 	{
