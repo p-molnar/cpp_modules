@@ -3,5 +3,10 @@
 
 void ScavTrap::guardGate(void)
 {
-	std::cout << "ScavTrap " << this->getName() << " is in gate keeper mode\n";
+	if (this->getHealthPt() > 0)
+		std::cout << "ScavTrap " << this->getName()
+				  << " is in gate keeper mode\n";
+	else
+		std::cout << "ScavTrap " << this->getName()
+				  << " can't be in gate keeper mode, because it's dead\n";
 }
