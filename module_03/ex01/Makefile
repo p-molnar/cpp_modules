@@ -14,6 +14,7 @@ SRC		=	main.cpp										\
 			ClapTrap/ClapTrap_setters.cpp							\
 			ClapTrap/ClapTrap_utility.cpp							\
 			ScavTrap/ScavTrap_attack.cpp							\
+			ScavTrap/ScavTrap_guardGate.cpp							\
 			ScavTrap/ScavTrap.cpp							\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
