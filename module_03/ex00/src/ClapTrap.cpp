@@ -8,7 +8,7 @@ ClapTrap::ClapTrap(void)
 }
 
 ClapTrap::ClapTrap(std::string name)
-	: name(name), health_pt(10), energy_pt(10), damage_pt(1)
+	: name(name), health_pt(10), energy_pt(10), damage_pt(0)
 {
 	std::cout << "String constructor of ClapTrap " << name << " called\n";
 }
