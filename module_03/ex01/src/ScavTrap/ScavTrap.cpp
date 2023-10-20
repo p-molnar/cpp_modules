@@ -1,4 +1,3 @@
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include <string>
 #include <iostream>
