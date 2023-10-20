@@ -23,7 +23,8 @@ ClapTrap::ClapTrap(const ClapTrap &obj)
 }
 const ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 {
-	std::cout << "Copy assignment constructor of ClapTrap " << name << " called\n";
+	std::cout << "Copy assignment constructor of ClapTrap "
+			  << name << " called\n";
 	name = obj.name;
 	health_pt = obj.health_pt;
 	energy_pt = obj.energy_pt;

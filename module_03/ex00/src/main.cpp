@@ -16,6 +16,8 @@ int main(void)
 	std::cout << t << '\n';
 	t.beRepaired(10);
 	std::cout << t << '\n';
+	t.takeDamage(15);
+	std::cout << t << '\n';
 	t.beRepaired(10);
 	std::cout << t << '\n';
 
