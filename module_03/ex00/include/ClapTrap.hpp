@@ -39,6 +39,5 @@ public:
 std::ostream &operator<<(std::ostream &os, const ClapTrap &obj);
 
 int min(int n1, int n2);
-int max(int n1, int n2);
 
 #endif
