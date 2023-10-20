@@ -5,22 +5,16 @@
 
 int main(void)
 {
-	ClapTrap obj_clap("A");
-	ScavTrap obj_scav("B");
+	ScavTrap a("A");
+	std::cout << a << '\n';
 
-	obj_scav.attack("C");
-	std::cout << obj_scav << '\n';
-	obj_scav.takeDamage(8);
-	std::cout << obj_scav << '\n';
-
-	obj_scav.beRepaired(3);
-	std::cout << obj_scav << '\n';
-
-	obj_scav.takeDamage(8);
-	std::cout << obj_scav << '\n';
-	obj_scav.attack("C");
-	std::cout << obj_scav << '\n';
-	obj_scav.beRepaired(2);
-	std::cout << obj_scav << '\n';
+	a.attack("B");
+	std::cout << a << '\n';
+	a.takeDamage(20);
+	std::cout << a << '\n';
+	a.beRepaired(10);
+	std::cout << a << '\n';
+	a.guardGate();
+	std::cout << a << '\n';
 	return EXIT_SUCCESS;
 }
