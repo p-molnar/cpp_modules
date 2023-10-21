@@ -8,7 +8,7 @@ FragTrap::FragTrap(void)
 }
 
 FragTrap::FragTrap(std::string name)
-	: ScavTrap(name)
+	: ClapTrap(name)
 {
 	std::cout << "String constructor of FragTrap "
 			  << this->getName() << " called\n";
