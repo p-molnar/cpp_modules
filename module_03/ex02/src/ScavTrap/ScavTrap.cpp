@@ -6,6 +6,9 @@
 ScavTrap::ScavTrap(void)
 {
 	std::cout << "Default constructor of ScavTrap called\n";
+	this->setHealthPt(100);
+	this->setEnergyPt(50);
+	this->setDamagePt(20);
 }
 
 ScavTrap::ScavTrap(std::string name)

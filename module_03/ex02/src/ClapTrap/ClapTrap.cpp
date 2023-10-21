@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-ClapTrap::ClapTrap(void)
+ClapTrap::ClapTrap(void) : health_pt(10), energy_pt(10), damage_pt(0)
 {
 	std::cout << "Default constructor of ClapTrap called\n";
 }
