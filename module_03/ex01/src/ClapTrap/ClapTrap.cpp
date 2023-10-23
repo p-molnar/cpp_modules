@@ -2,13 +2,14 @@
 #include <string>
 #include <iostream>
 
-ClapTrap::ClapTrap(void) : health_pt(10), energy_pt(10), damage_pt(0)
+ClapTrap::ClapTrap(void)
+	: health_pt(clap_health_pt), energy_pt(clap_energy_pt), damage_pt(clap_damage_pt)
 {
 	std::cout << "Default constructor of ClapTrap called\n";
 }
 
 ClapTrap::ClapTrap(std::string name)
-	: name(name), health_pt(10), energy_pt(10), damage_pt(0)
+	: name(name), health_pt(clap_health_pt), energy_pt(clap_energy_pt), damage_pt(clap_damage_pt)
 {
 	std::cout << "String constructor of ClapTrap " << name << " called\n";
 }

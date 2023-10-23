@@ -5,6 +5,11 @@
 
 class ClapTrap
 {
+protected:
+	static const int clap_health_pt = 10;
+	static const int clap_energy_pt = 10;
+	static const int clap_damage_pt = 0;
+
 private:
 	std::string name;
 	int health_pt;

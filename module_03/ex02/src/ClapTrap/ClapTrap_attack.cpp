@@ -1,4 +1,5 @@
 #include "ClapTrap.hpp"
+#include <string>
 #include <iostream>
 
 void ClapTrap::attack(const std::string &target)

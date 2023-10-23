@@ -12,13 +12,12 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	else if (health_pt == 0)
 	{
-		std::cout << "ClapTrap " << name << " can't repairs itself with "
-				  << amount
-				  << " point(s), because it's dead\n";
+		std::cout << "ClapTrap " << name << " can't repair itself with "
+				  << amount << " point(s), because it's dead\n";
 	}
 	else
 	{
-		std::cout << "ClapTrap " << name << " can't repairs itself with "
+		std::cout << "ClapTrap " << name << " can't repair itself with "
 				  << amount << " point(s) because of insufficient amount "
 				  << "of energy point(s)\n";
 	}
