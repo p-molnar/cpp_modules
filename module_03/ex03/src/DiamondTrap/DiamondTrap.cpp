@@ -10,11 +10,10 @@ DiamondTrap::DiamondTrap(void)
 DiamondTrap::DiamondTrap(std::string name)
 	: ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap(), name(name)
 {
-	this->health_pt = FragTrap::health_pt;
-	this->energy_pt = ScavTrap::energy_pt;
-	this->damage_pt = FragTrap::damage_pt;
-	std::cout << "String constructor of DiamondTrap "
-			  << name << " called\n";
+	this->setHealthPt(FragTrap::getHealthPt());
+	this->setEnergyPt(ScavTrap::getEnergyPt());
+	this->setDamagePt(FragTrap::getDamagePt());
+	std::cout << "String constructor of DiamondTrap " << name << " called\n";
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &obj)

@@ -19,7 +19,6 @@ public:
 
 public:
 	using ScavTrap::attack;
-	void printMembers(void);
 	void whoAmI(void);
 };
 
