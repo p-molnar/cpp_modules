@@ -1,4 +1,3 @@
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include <string>
 #include <iostream>
@@ -6,9 +5,10 @@
 ScavTrap::ScavTrap(void)
 {
 	std::cout << "Default constructor of ScavTrap called\n";
-	this->setHealthPt(100);
-	this->setEnergyPt(50);
-	this->setDamagePt(20);
+
+	this->setHealthPt(scav_health_pt);
+	this->setEnergyPt(scav_energy_pt);
+	this->setDamagePt(scav_damage_pt);
 }
 
 ScavTrap::ScavTrap(std::string name)
@@ -17,9 +17,9 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << "String constructor of ScavTrap "
 			  << this->getName() << " called\n";
 
-	this->setHealthPt(100);
-	this->setEnergyPt(50);
-	this->setDamagePt(20);
+	this->setHealthPt(scav_health_pt);
+	this->setEnergyPt(scav_energy_pt);
+	this->setDamagePt(scav_damage_pt);
 }
 
 ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap()
