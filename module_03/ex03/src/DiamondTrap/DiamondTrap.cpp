@@ -18,6 +18,9 @@ DiamondTrap::DiamondTrap(std::string name)
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &obj)
+	: ClapTrap(),
+	  ScavTrap(),
+	  FragTrap()
 {
 	std::cout << "Copy constructor of DiamondTrap "
 			  << this->getName() << " called\n";
