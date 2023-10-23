@@ -19,7 +19,7 @@ SRC		=	main.cpp													\
 			FragTrap/FragTrap.cpp										\
 			FragTrap/FragTrap_highFivesGuys.cpp							\
 			DiamondTrap/DiamondTrap.cpp									\
-			DiamondTrap/DiamondTrap_whoAmI.cpp					\
+			DiamondTrap/DiamondTrap_whoAmI.cpp							\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
