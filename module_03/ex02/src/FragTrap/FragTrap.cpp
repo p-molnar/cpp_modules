@@ -5,9 +5,9 @@
 FragTrap::FragTrap(void)
 {
 	std::cout << "Default constructor of FragTrap called\n";
-	this->setHealthPt(100);
-	this->setEnergyPt(100);
-	this->setDamagePt(30);
+	this->setHealthPt(frag_health_pt);
+	this->setEnergyPt(frag_energy_pt);
+	this->setDamagePt(frag_damage_pt);
 }
 
 FragTrap::FragTrap(std::string name)

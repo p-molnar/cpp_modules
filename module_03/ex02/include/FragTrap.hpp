@@ -6,6 +6,11 @@
 
 class FragTrap : public ClapTrap
 {
+protected:
+	static const int frag_health_pt = 100;
+	static const int frag_energy_pt = 100;
+	static const int frag_damage_pt = 30;
+
 public:
 	FragTrap(std::string name);
 	FragTrap(void);
