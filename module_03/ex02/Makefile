@@ -1,5 +1,5 @@
 NAME	:=	fragtrap
-CC		:=	g++
+CC		:=	c++
 CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98 
 CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
 CPPFLAGS+=	-MMD -MP
@@ -13,9 +13,6 @@ SRC		=	main.cpp													\
 			ClapTrap/ClapTrap_getters.cpp								\
 			ClapTrap/ClapTrap_setters.cpp								\
 			ClapTrap/ClapTrap_utility.cpp								\
-			ScavTrap/ScavTrap_attack.cpp								\
-			ScavTrap/ScavTrap_guardGate.cpp								\
-			ScavTrap/ScavTrap.cpp										\
 			FragTrap/FragTrap.cpp										\
 			FragTrap/FragTrap_highFivesGuys.cpp							\
 
