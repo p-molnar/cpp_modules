@@ -21,7 +21,7 @@ FragTrap::FragTrap(std::string name)
 	this->setDamagePt(30);
 }
 
-FragTrap::FragTrap(const FragTrap &obj)
+FragTrap::FragTrap(const FragTrap &obj) : ClapTrap()
 {
 	std::cout << "Copy constructor of FragTrap "
 			  << this->getName() << " called\n";

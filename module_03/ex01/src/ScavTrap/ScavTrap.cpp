@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(std::string name)
 	this->setDamagePt(20);
 }
 
-ScavTrap::ScavTrap(const ScavTrap &obj)
+ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap()
 {
 	std::cout << "Copy constructor of ScavTrap "
 			  << this->getName() << " called\n";
