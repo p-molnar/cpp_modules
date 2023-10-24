@@ -1,7 +1,7 @@
 #include "Animal.hpp"
-#include <string>
+#include <iostream>
 
 void Animal::makeSound(void) const
 {
-	std::cout << "Base class' sound\n";
+	std::cout << "Animal class' sound\n";
 }

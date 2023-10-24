@@ -12,14 +12,13 @@ public:
 	Animal(std::string type);
 	Animal(const Animal &obj);
 	Animal &operator=(const Animal &obj);
-	~Animal(void);
+	virtual ~Animal(void);
 
 public:
 	const std::string &getType(void) const;
 
 public:
-	virtual void
-	makeSound(void) const;
+	virtual void makeSound(void) const;
 };
 
 #endif
