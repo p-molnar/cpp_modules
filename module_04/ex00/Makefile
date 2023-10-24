@@ -9,8 +9,13 @@ SRC		=	main.cpp													\
 			Animal/Animal.cpp											\
 			Animal/Animal_makeSound.cpp									\
 			Animal/Animal_getType.cpp									\
+			WrongAnimal/WrongAnimal.cpp									\
+			WrongAnimal/WrongAnimal_makeSound.cpp						\
+			WrongAnimal/WrongAnimal_getType.cpp							\
 			Cat/Cat.cpp													\
 			Cat/Cat_makeSound.cpp										\
+			WrongCat/WrongCat.cpp										\
+			WrongCat/WrongCat_makeSound.cpp								\
 			Dog/Dog.cpp													\
 			Dog/Dog_makeSound.cpp										\
 
