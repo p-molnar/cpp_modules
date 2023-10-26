@@ -2,9 +2,10 @@
 #include "Animal.hpp"
 #include <iostream>
 
-Cat::Cat(void) : Animal("Cat"), brain(new Brain)
+Cat::Cat(void) : Animal("Cat")
 {
 	std::cout << "Cat default constructor called\n";
+	brain = new Brain;
 }
 
 Cat::Cat(const Cat &obj) : Animal(obj.type)
