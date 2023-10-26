@@ -2,16 +2,16 @@
 #define BRAIN__HPP
 
 #include <string>
-
-#define SIZE 100
+#define BRAIN_CAPACITY 100
 
 class Brain
 {
-protected:
-	std::string ideas[SIZE];
+public:
+	std::string ideas[BRAIN_CAPACITY];
 
 public:
 	Brain(void);
+	Brain(const Brain *obj);
 	Brain(const Brain &obj);
 	Brain &operator=(const Brain &obj);
 	~Brain(void);
