@@ -8,10 +8,14 @@ protected:
 	std::string type;
 
 public:
+	static int c_id;
+	int id;
+
+public:
 	Animal(void);
 	Animal(std::string type);
 	Animal(const Animal &obj);
-	Animal &operator=(const Animal &obj);
+	virtual Animal &operator=(const Animal &obj);
 	virtual ~Animal(void);
 
 public:
@@ -19,9 +23,6 @@ public:
 
 public:
 	virtual void makeSound(void) const;
-
-	// public:
-	// 	void deepCopy()
 };
 
 #endif
