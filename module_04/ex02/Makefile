@@ -1,4 +1,4 @@
-NAME	:=	brain
+NAME	:=	abstract_class	
 CC		:=	g++
 CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
 CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
