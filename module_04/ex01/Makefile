@@ -1,6 +1,6 @@
 NAME	:=	brain
-CC		:=	c++
-CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98 
+CC		:=	g++
+CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
 CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
 CPPFLAGS+=	-MMD -MP
 LDFLAGS	?=
@@ -12,8 +12,12 @@ SRC		=	main.cpp													\
 			Animal/Animal_getType.cpp									\
 			Cat/Cat.cpp													\
 			Cat/Cat_makeSound.cpp										\
+			Cat/Cat_deepCopy.cpp										\
+			Cat/Cat_getBrain.cpp										\
 			Dog/Dog.cpp													\
 			Dog/Dog_makeSound.cpp										\
+			Dog/Dog_deepCopy.cpp										\
+			Dog/Dog_getBrain.cpp										\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
