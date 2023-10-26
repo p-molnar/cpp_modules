@@ -8,7 +8,6 @@ INCLUDE	=	include/
 SRC		=	main.cpp													\
 			Brain/Brain.cpp												\
 			Animal/Animal.cpp											\
-			Animal/Animal_makeSound.cpp									\
 			Animal/Animal_getType.cpp									\
 			Cat/Cat.cpp													\
 			Cat/Cat_makeSound.cpp										\
