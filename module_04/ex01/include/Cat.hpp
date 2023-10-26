@@ -18,7 +18,10 @@ public:
 public:
 	void makeSound(void) const;
 	void deepCopy(const Cat &obj);
+
+public:
 	Brain *getBrain(void) const;
+	Brain *getBrainAddress(void) const;
 };
 
 #endif
