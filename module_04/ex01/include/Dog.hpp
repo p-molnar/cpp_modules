@@ -18,7 +18,8 @@ public:
 public:
 	void makeSound(void) const;
 	void deepCopy(const Dog &obj);
-	Brain *getAddress(void);
+	std::string getBrain(void) const;
+	Brain *getBrainAddress(void);
 };
 
 #endif

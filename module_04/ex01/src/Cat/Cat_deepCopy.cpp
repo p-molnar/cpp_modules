@@ -9,10 +9,7 @@ void Cat::deepCopy(const Cat &obj)
 	delete brain;
 
 	if (obj.brain)
-	{
-		brain = new Brain;
-		memcpy(brain, obj.brain, sizeof(Brain));
-	}
+		brain = new Brain(obj.brain);
 	else
 		brain = NULL;
 }

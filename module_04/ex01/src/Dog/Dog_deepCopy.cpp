@@ -6,12 +6,8 @@ void Dog::deepCopy(const Dog &obj)
 	type = obj.type;
 
 	delete brain;
-
-	if (obj.brain)
-	{
-		brain = new Brain;
-		memcpy(brain, obj.brain, sizeof(Brain));
-	}
+	if (brain)
+		brain = new Brain(obj.brain);
 	else
 		brain = NULL;
 }
