@@ -13,11 +13,11 @@ SRC		=	main.cpp													\
 			Cat/Cat.cpp													\
 			Cat/Cat_makeSound.cpp										\
 			Cat/Cat_deepCopy.cpp										\
-			Cat/Cat_getBrain.cpp										\
+			Cat/Cat_getters.cpp										\
 			Dog/Dog.cpp													\
 			Dog/Dog_makeSound.cpp										\
 			Dog/Dog_deepCopy.cpp										\
-			Dog/Dog_getBrain.cpp										\
+			Dog/Dog_getters.cpp										\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
