@@ -3,5 +3,5 @@
 
 void Animal::makeSound(void) const
 {
-	std::cout << "Animal class' sound\n";
+	std::cout << "Animal default sound\n";
 }
