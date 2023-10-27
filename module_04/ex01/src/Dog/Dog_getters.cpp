@@ -1,9 +1,9 @@
 #include "Dog.hpp"
 #include <iostream>
 
-std::string Dog::getBrain(void) const
+const std::string &Dog::getBrainIdea(unsigned int i) const
 {
-	return brain->ideas[0];
+	return brain->getIdea(i);
 }
 
 Brain *Dog::getBrainAddress(void) const
