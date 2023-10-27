@@ -2,16 +2,13 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include <iostream>
-
-void leaks(void)
-{
-	system("leaks brain");
-}
+#include <cstdlib>
 
 int Animal::c_id = 0;
+
 int main(void)
 {
-	atexit(leaks);
+	srand(time(NULL));
 	// tests for virtual destructor
 
 	const int size = 5;
@@ -20,15 +17,13 @@ int main(void)
 
 	for (int i = 0; i < size; i++)
 	{
-		if (i < size / 2)
+		if (i < (size / 2))
 		{
-			std::cout << "dog #" << i << '\n';
 			animals[i] = new Dog;
 			std::cout << '\n';
 		}
 		else
 		{
-			std::cout << "cat #" << i << '\n';
 			animals[i] = new Cat;
 			std::cout << '\n';
 		}
@@ -41,18 +36,19 @@ int main(void)
 	delete[] animals;
 
 	// test for deep copies
+	unsigned int idx = rand() % BRAIN_CAPACITY;
 	Dog dog_a;
 	{
 		Dog dog_b;
 		std::cout << '\n';
 		std::cout << "dog #" << dog_a.id << " brain address: " << dog_a.getBrainAddress() << '\n';
-		std::cout << "dog #" << dog_a.id << " brain idea: " << dog_a.getBrain() << '\n';
+		std::cout << "dog #" << dog_a.id << " brain idea: #" << idx << ": " << dog_a.getBrainIdea(idx) << '\n';
 		std::cout << "dog #" << dog_b.id << " brain address: " << dog_b.getBrainAddress() << '\n';
-		std::cout << "dog #" << dog_b.id << " brain idea: " << dog_b.getBrain() << '\n';
+		std::cout << "dog #" << dog_b.id << " brain idea: #" << idx << ": " << dog_b.getBrainIdea(idx) << '\n';
 		dog_a = dog_b;
 	}
 
 	std::cout << '\n';
 	std::cout << "dog #" << dog_a.id << " brain address: " << dog_a.getBrainAddress() << '\n';
-	std::cout << "dog #" << dog_a.id << " brain's mem address: " << dog_a.getBrain() << '\n';
+	std::cout << "dog #" << dog_a.id << " brain idea #" << idx << ": " << dog_a.getBrainIdea(idx) << '\n';
 }

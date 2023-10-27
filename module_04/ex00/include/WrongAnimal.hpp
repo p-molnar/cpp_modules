@@ -8,6 +8,10 @@ protected:
 	std::string type;
 
 public:
+	static int c_id;
+	int id;
+
+public:
 	WrongAnimal(void);
 	WrongAnimal(std::string type);
 	WrongAnimal(const WrongAnimal &obj);

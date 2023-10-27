@@ -6,8 +6,12 @@
 Brain::Brain(void)
 {
 	std::cout << "Brain default constructor called\n";
-	for (int i = 0; i < 5; i++)
-		ideas[0] += (rand() % 25) + 65;
+	for (int i = 0; i < BRAIN_CAPACITY; i++)
+	{
+		for (int j = 0; j < (rand() % 20); j++)
+			ideas[i] += (rand() % 25) + 65;
+	}
+	std::cout << "Brain ideas populated\n";
 }
 
 Brain::Brain(const Brain *obj)

@@ -20,7 +20,7 @@ public:
 	void deepCopy(const Dog &obj);
 
 public:
-	std::string getBrain(void) const;
+	const std::string &getBrainIdea(unsigned int i) const;
 	Brain *getBrainAddress(void) const;
 };
 

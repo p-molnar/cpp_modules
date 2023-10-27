@@ -2,9 +2,9 @@
 #include "Brain.hpp"
 #include <iostream>
 
-Brain *Cat::getBrain(void) const
+const std::string &Cat::getBrainIdea(unsigned int i) const
 {
-	return brain;
+	return brain->getIdea(i);
 }
 Brain *Cat::getBrainAddress(void) const
 {
