@@ -7,6 +7,8 @@ LDFLAGS	?=
 INCLUDE	=	include/
 SRC		=	main.cpp										\
 			Bureaucrat/Bureaucrat.cpp						\
+			Bureaucrat/Bureaucrat_GradeTooHighException.cpp	\
+			Bureaucrat/Bureaucrat_GradeTooLowException.cpp	\
 			Bureaucrat/Bureaucrat_getters.cpp				\
 			Bureaucrat/Bureaucrat_grade_ops.cpp				\
 
