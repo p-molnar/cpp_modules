@@ -5,8 +5,9 @@
 
 Form::Form(void)
 	: name("default"),
-	  sign_grade(-1),
-	  execute_grade(-1)
+	  is_signed(false),
+	  sign_grade(1),
+	  execute_grade(1)
 {
 }
 
