@@ -1,9 +1,9 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-void Form::beSigned(const Bureaucrat &obj)
+void Form::beSigned(const Bureaucrat &bureaucrat)
 {
-	int bureaucrat_grade = obj.getGrade();
-	if (bureaucrat_grade > sign_grade)
+	if (bureaucrat.getGrade() > sign_grade)
 		throw Form::GradeTooLowException();
+	this->is_signed = true;
 }
