@@ -1,4 +1,4 @@
-NAME	:=	bureaucrat
+NAME	:=	Form
 CC		:=	c++
 CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
 CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
@@ -9,9 +9,14 @@ SRC		=	main.cpp										\
 			Bureaucrat/Bureaucrat.cpp						\
 			Bureaucrat/Bureaucrat_getters.cpp				\
 			Bureaucrat/Bureaucrat_grade_ops.cpp				\
+			Bureaucrat/Bureaucrat_signForm.cpp				\
+			Bureaucrat/Bureaucrat_GradeTooHighException.cpp	\
+			Bureaucrat/Bureaucrat_GradeTooLowException.cpp	\
 			Form/Form_beSigned.cpp							\
 			Form/Form_getters.cpp							\
 			Form/Form.cpp									\
+			Form/Form_GradeTooHighException.cpp				\
+			Form/Form_GradeTooLowException.cpp				\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
