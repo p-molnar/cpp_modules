@@ -45,7 +45,7 @@ public:
 	void decrement(void);
 
 public:
-	void signForm(const Form &obj);
+	void signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);

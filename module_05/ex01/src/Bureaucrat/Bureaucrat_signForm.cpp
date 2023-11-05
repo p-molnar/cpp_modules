@@ -2,7 +2,7 @@
 #include "Form.hpp"
 #include <iostream>
 
-void Bureaucrat::signForm(const Form &form)
+void Bureaucrat::signForm(Form &form)
 {
 	try
 	{
