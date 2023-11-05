@@ -9,7 +9,6 @@
 
 class Bureaucrat
 {
-
 	class GradeTooHighException : public std::exception
 	{
 	public:
