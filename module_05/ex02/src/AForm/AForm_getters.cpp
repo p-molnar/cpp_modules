@@ -1,21 +1,6 @@
 #include "AForm.hpp"
 
-std::string AForm::getName(void) const
+void AForm::set_IsSigned(bool val)
 {
-	return name;
-}
-
-bool AForm::getIsSigned(void) const
-{
-	return is_signed;
-}
-
-int AForm::getSignGrade(void) const
-{
-	return sign_grade;
-}
-
-int AForm::getExecuteGrade(void) const
-{
-	return execute_grade;
+	is_signed = val;
 }

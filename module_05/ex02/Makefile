@@ -1,0 +1,47 @@
+NAME	:=	Abstract_form
+CC		:=	c++
+CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
+CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
+CPPFLAGS+=	-MMD -MP
+LDFLAGS	?=
+INCLUDE	=	include/
+SRC		=	main.cpp										\
+			Bureaucrat/Bureaucrat.cpp						\
+			Bureaucrat/Bureaucrat_getters.cpp				\
+			Bureaucrat/Bureaucrat_grade_ops.cpp				\
+			Bureaucrat/Bureaucrat_signForm.cpp				\
+			Bureaucrat/Bureaucrat_GradeTooHighException.cpp	\
+			Bureaucrat/Bureaucrat_GradeTooLowException.cpp	\
+			AForm/AForm_beSigned.cpp						\
+			AForm/AForm_getters.cpp							\
+			AForm/AForm_setters.cpp							\
+			AForm/AForm.cpp									\
+			AForm/AForm_GradeTooHighException.cpp			\
+			AForm/AForm_GradeTooLowException.cpp			\
+			ShrubberyCreationForm/ShrubberyCreationForm.cpp	\
+			RobotomyRequestForm/RobotomyRequestForm.cpp	\
+			PresidentialPardonForm/PresidentialPardonForm.cpp	\
+
+
+OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
+
+all:	$(NAME)
+
+$(NAME):	$(OBJ)
+	$(CC) $(LDFLAGS) -o $@ $^
+
+obj/%.o:	src/%.cpp
+	@mkdir -p $(dir $@)
+	$(CC) -c $(CPPFLAGS) -o $@ $^
+
+-include $(SRC:.cpp=.d)
+
+clean:	
+	rm -rf obj
+
+fclean:	clean
+	rm -f $(NAME)
+
+re:	fclean all
+
+.PHONY:	all clean fclean re
