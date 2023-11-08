@@ -1,5 +1,5 @@
-#ifndef FORM__HPP
-#define FORM__HPP
+#ifndef AFORM__HPP
+#define AFORM__HPP
 
 #include <string>
 #include <exception>
@@ -42,6 +42,9 @@ public:
 	bool getIsSigned(void) const;
 	int getSignGrade(void) const;
 	int getExecuteGrade(void) const;
+
+public:
+	void set_IsSigned(bool val);
 
 public:
 	void beSigned(const Bureaucrat &obj);
