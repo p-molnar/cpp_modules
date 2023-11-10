@@ -8,8 +8,28 @@
 
 int main(void)
 {
-	ShrubberyCreationForm SCF("blabla");
-	RobotomyRequestForm RRF("blabla");
-	PresidentialPardonForm PPR("blabla");
+	ShrubberyCreationForm SCF("Daniel");
+	RobotomyRequestForm RRF("Edward");
+	PresidentialPardonForm PPR("Fiona");
+
+	std::cout << "\n\n";
+
+	Bureaucrat B_1("Anna", 120);
+	B_1.executeForm(SCF);
+	B_1.executeForm(RRF);
+	B_1.executeForm(PPR);
+	std::cout << "\n";
+
+	Bureaucrat B_2("Bob", 40);
+	B_2.executeForm(SCF);
+	B_2.executeForm(RRF);
+	B_2.executeForm(PPR);
+	std::cout << "\n";
+
+	Bureaucrat B_3("Carla", 5);
+	B_3.executeForm(SCF);
+	B_3.executeForm(RRF);
+	B_3.executeForm(PPR);
+	std::cout << "\n";
 	return EXIT_SUCCESS;
 }

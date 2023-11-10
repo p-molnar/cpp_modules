@@ -9,9 +9,7 @@ PresidentialPardonForm::PresidentialPardonForm(void)
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	: AForm("PresidentialPardonForm", 25, 5)
 {
-	std::cout << "Informs that "
-			  << target
-			  << " has been pardoned by Zaphod Beeblebrox.\n";
+	std::cout << target << " has been pardoned by Zaphod Beeblebrox.\n";
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) : AForm(obj.getName(), obj.getSignGrade(), obj.getExecuteGrade())

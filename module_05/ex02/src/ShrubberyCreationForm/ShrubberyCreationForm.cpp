@@ -1,5 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+#include <unistd.h>
 
 ShrubberyCreationForm::ShrubberyCreationForm(void)
 	: AForm("ShrubberyCreationForm", 145, 137)
@@ -9,7 +10,11 @@ ShrubberyCreationForm::ShrubberyCreationForm(void)
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	: AForm("ShrubberyCreationForm", 145, 137)
 {
-	std::ofstream outfile(target + "_shrubbery.txt");
+	const int buf_size = 512;
+	char path_buf[buf_size];
+	getcwd(path_buf, buf_size);
+	std::string path = path_buf;
+	std::ofstream outfile(path + "/" + target + "_shrubbery.txt");
 
 	outfile << ".\n"
 			   "└── Edit me to generate/\n"

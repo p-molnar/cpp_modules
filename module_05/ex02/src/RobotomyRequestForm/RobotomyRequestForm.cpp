@@ -9,9 +9,9 @@ RobotomyRequestForm::RobotomyRequestForm(void)
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
 	: AForm("RobotomyRequestForm", 72, 45)
 {
-	std::cout << "Makes some drilling noises. Then, informs that "
+	std::cout << "Drilling noises Grrr\n"
 			  << target << " has been robotomized successfully 50% of the"
-			  << " time. Otherwise, informs that the robotomy failed.\n";
+			  << " time. Otherwiserobotomy failed.\n";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj)

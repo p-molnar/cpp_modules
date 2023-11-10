@@ -28,26 +28,35 @@ private:
 	const int sign_grade;
 	const int execute_grade;
 
+	// instantiation / destroying related member functions
 public:
 	AForm(void);
 	AForm(std::string name,
-		 const int sign_grade,
-		 const int execute_grade);
+		  const int sign_grade,
+		  const int execute_grade);
 	AForm(const AForm &obj);
 	AForm &operator=(const AForm &obj);
-	~AForm(void);
+	virtual ~AForm(void);
 
+	// getters
 public:
 	std::string getName(void) const;
 	bool getIsSigned(void) const;
 	int getSignGrade(void) const;
 	int getExecuteGrade(void) const;
 
+	// setters
 public:
 	void set_IsSigned(bool val);
 
 public:
 	void beSigned(const Bureaucrat &obj);
+
+protected:
+	void validateForExecution(const Bureaucrat &executor) const;
+
+public:
+	virtual void execute(const Bureaucrat &executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &obj);

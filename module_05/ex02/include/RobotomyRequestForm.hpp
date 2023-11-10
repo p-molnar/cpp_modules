@@ -13,6 +13,9 @@ public:
 	RobotomyRequestForm(const RobotomyRequestForm &obj);
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
 	~RobotomyRequestForm(void);
+
+public:
+	void execute(const Bureaucrat &executor) const;
 };
 
 #endif
