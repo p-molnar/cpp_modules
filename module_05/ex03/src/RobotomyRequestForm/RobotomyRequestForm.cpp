@@ -11,7 +11,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 {
 	std::cout << "Drilling noises Grrr\n"
 			  << target << " has been robotomized successfully 50% of the"
-			  << " time. Otherwiserobotomy failed.\n";
+			  << " time. Otherwise robotomy failed.\n";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj)
