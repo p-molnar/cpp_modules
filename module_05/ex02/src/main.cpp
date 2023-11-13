@@ -8,11 +8,18 @@
 
 int main(void)
 {
+	// AForm a;
 	ShrubberyCreationForm SCF("Daniel");
 	RobotomyRequestForm RRF("Edward");
 	PresidentialPardonForm PPR("Fiona");
 
 	std::cout << "\n\n";
+
+	// Bureaucrat B_err_1("Anna", 151);
+	// Bureaucrat B_err_2("Anna", 0);
+
+	AForm *scf = new ShrubberyCreationForm("abc");
+	delete scf;
 
 	Bureaucrat B_1("Anna", 120);
 	B_1.executeForm(SCF);
