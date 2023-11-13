@@ -26,7 +26,8 @@ SRC		=	main.cpp													\
 			RobotomyRequestForm/RobotomyRequestForm_execute.cpp			\
 			PresidentialPardonForm/PresidentialPardonForm.cpp			\
 			PresidentialPardonForm/PresidentialPardonForm_execute.cpp	\
-
+			Intern/Intern.cpp											\
+			Intern/Intern_makeForm.cpp									\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 

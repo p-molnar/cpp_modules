@@ -3,6 +3,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include <cstdlib>
 #include <iostream>
 
@@ -38,5 +39,10 @@ int main(void)
 	B_3.executeForm(RRF);
 	B_3.executeForm(PPR);
 	std::cout << "\n";
+
+	Intern intern;
+
+	AForm *form = intern.makeForm("ShrubberyCreationForm", "target");
+	form->getName();
 	return EXIT_SUCCESS;
 }
