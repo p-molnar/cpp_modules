@@ -1,26 +1,37 @@
-#include "PresidentialPardonForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
 #include "Intern.hpp"
 #include <iostream>
 
 AForm *Intern::makeForm(std::string form_name, std::string target) const
 {
 	const int form_size = 3;
-	AForm *forms[form_size] =
+	AForm *(*fn_ptr[form_size])(std::string) =
 		{
-			new ShrubberyCreationForm(target),
-			new PresidentialPardonForm(target),
-			new RobotomyRequestForm(target)};
+			getRobotomyRequestForm,
+			getPresidentialPardonForm,
+			getShrubberyCreationForm};
 
-	AForm *result = nullptr;
+	std::string fn_names[form_size] =
+		{
+			"robotomy request",
+			"presidential pardon",
+			"shrubbery creation"};
+
+	AForm *form = NULL;
 
 	for (int i = 0; i < form_size; i++)
 	{
-		if (form_name == forms[i]->getName())
-			result = forms[i];
-		delete forms[i];
+		if (fn_names[i] == form_name)
+		{
+			form = fn_ptr[i](target);
+		}
 	}
 
-	return result;
+	if (form)
+	{
+		std::cout << "Intern creates " << form_name << '\n';
+	}
+	else
+		throw Intern::NoFormFoundException();
+
+	return form;
 }

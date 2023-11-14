@@ -28,6 +28,8 @@ SRC		=	main.cpp													\
 			PresidentialPardonForm/PresidentialPardonForm_execute.cpp	\
 			Intern/Intern.cpp											\
 			Intern/Intern_makeForm.cpp									\
+			Intern/Intern_getForms.cpp									\
+			Intern/Intern_NoFormFoundException.cpp						\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
