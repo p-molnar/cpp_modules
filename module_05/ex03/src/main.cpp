@@ -42,7 +42,16 @@ int main(void)
 
 	Intern intern;
 
-	AForm *form = intern.makeForm("ShrubberyCreationForm", "target");
-	form->getName();
+	try
+	{
+		// AForm *form = intern.makeForm("presidential pardon", "target");
+		AForm *form = intern.makeForm("non existing form", "target");
+		delete form;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what();
+	}
+
 	return EXIT_SUCCESS;
 }
