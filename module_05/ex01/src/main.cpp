@@ -95,11 +95,18 @@ int main(void)
 		std::cout << e.what();
 	}
 
-	Form F_6("non-disclosure agreements", 15, 20);
-	std::cout << F_6;
-	Bureaucrat B_8("Gerogie", 3);
-	B_8.signForm(F_6);
-	std::cout << F_6;
+	try
+	{
+		Form F_6("non-disclosure agreements", 15, 20);
+		std::cout << F_6;
+		Bureaucrat B_8("Gerogie", 3);
+		B_8.signForm(F_6);
+		std::cout << F_6;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
 	return EXIT_SUCCESS;
 }
