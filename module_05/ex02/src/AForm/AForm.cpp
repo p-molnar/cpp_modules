@@ -12,8 +12,8 @@ AForm::AForm(void)
 }
 
 AForm::AForm(std::string name,
-		   const int grade_to_sign,
-		   const int grade_to_execute)
+			 const int grade_to_sign,
+			 const int grade_to_execute)
 	: name(name),
 	  is_signed(false),
 	  grade_to_sign(grade_to_sign),
@@ -47,9 +47,10 @@ AForm::~AForm(void) {}
 
 std::ostream &operator<<(std::ostream &os, const AForm &obj)
 {
-	os << "AForm\n";
+	std::string bool_arr[] = {"false", "true"};
+
 	os << "- name: " << obj.getName() << '\n';
-	os << "- is_signed: " << obj.getIsSigned() << '\n';
+	os << "- is_signed: " << bool_arr[obj.getIsSigned()] << '\n';
 	os << "- grade_to_execute: " << obj.getExecuteGrade() << '\n';
 	os << "- grade_to_sign: " << obj.getSignGrade() << '\n';
 	return os;

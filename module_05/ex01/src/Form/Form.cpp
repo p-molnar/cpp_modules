@@ -47,9 +47,10 @@ Form::~Form(void) {}
 
 std::ostream &operator<<(std::ostream &os, const Form &obj)
 {
-	os << "Form\n";
+	std::string bool_arr[] = {"false", "true"};
+
 	os << "- name: " << obj.getName() << '\n';
-	os << "- is_signed: " << obj.getIsSigned() << '\n';
+	os << "- is_signed: " << bool_arr[obj.getIsSigned()] << '\n';
 	os << "- grade_to_execute: " << obj.getExecuteGrade() << '\n';
 	os << "- grade_to_sign: " << obj.getSignGrade() << '\n';
 	return os;
