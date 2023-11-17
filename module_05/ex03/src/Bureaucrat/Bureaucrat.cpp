@@ -34,10 +34,5 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj)
 {
 	os << obj.getName() << ", "
 	   << "bureaucrat grade " << obj.getGrade();
-	return osperator << (std::ostream & os, const Bureaucrat &obj)
-	{
-		os << obj.getName() << ", "
-		   << "bureaucrat grade " << obj.getGrade();
-		return os;
-	};
+	return os;
 }
