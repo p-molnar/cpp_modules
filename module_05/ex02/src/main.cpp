@@ -8,7 +8,8 @@
 
 int main(void)
 {
-	// AForm a;
+	// AForm AbstractFromError;
+
 	ShrubberyCreationForm SCF("Daniel");
 	RobotomyRequestForm RRF("Edward");
 	PresidentialPardonForm PPR("Fiona");
@@ -20,6 +21,13 @@ int main(void)
 
 	AForm *scf = new ShrubberyCreationForm("abc");
 	delete scf;
+
+	Bureaucrat Boss("Boss", 1);
+
+	Boss.signForm(SCF);
+	Boss.signForm(RRF);
+	Boss.signForm(PPR);
+	std::cout << "\n";
 
 	Bureaucrat B_1("Anna", 120);
 	B_1.executeForm(SCF);

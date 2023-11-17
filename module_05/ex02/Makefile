@@ -21,6 +21,7 @@ SRC		=	main.cpp													\
 			AForm/AForm_GradeTooHighException.cpp						\
 			AForm/AForm_GradeTooLowException.cpp						\
 			AForm/AForm_FormNotSignedException.cpp						\
+			AForm/AForm_FormAlreadySignedException.cpp					\
 			ShrubberyCreationForm/ShrubberyCreationForm.cpp				\
 			ShrubberyCreationForm/ShrubberyCreationForm_execute.cpp		\
 			RobotomyRequestForm/RobotomyRequestForm.cpp					\

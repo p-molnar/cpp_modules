@@ -1,4 +1,4 @@
-NAME	:=	Abstract_form
+NAME	:=	intern
 CC		:=	c++
 CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
 CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
