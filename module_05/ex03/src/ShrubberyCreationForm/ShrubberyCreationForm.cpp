@@ -14,7 +14,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	char path_buf[buf_size];
 	getcwd(path_buf, buf_size);
 	std::string path = path_buf;
-	std::ofstream outfile(path + "/" + target + "_shrubbery.txt");
+	path += "/" + target + "_shrubbery.txt";
+	std::ofstream outfile(path.c_str());
 
 	outfile << ".\n"
 			   "└── Edit me to generate/\n"
