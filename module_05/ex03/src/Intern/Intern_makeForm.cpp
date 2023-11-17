@@ -23,6 +23,7 @@ AForm *Intern::makeForm(std::string form_name, std::string target) const
 		if (fn_names[i] == form_name)
 		{
 			form = fn_ptr[i](target);
+			break;
 		}
 	}
 
