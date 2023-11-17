@@ -22,6 +22,12 @@ int main(void)
 	AForm *scf = new ShrubberyCreationForm("abc");
 	delete scf;
 
+	Bureaucrat Boss("Boss", 1);
+
+	Boss.signForm(SCF);
+	Boss.signForm(RRF);
+	Boss.signForm(PPR);
+
 	Bureaucrat B_1("Anna", 120);
 	B_1.executeForm(SCF);
 	B_1.executeForm(RRF);
@@ -44,7 +50,6 @@ int main(void)
 
 	try
 	{
-		// AForm *form = intern.makeForm("presidential pardon", "target");
 		AForm *form = intern.makeForm("non existing form", "target");
 		delete form;
 	}
@@ -53,5 +58,34 @@ int main(void)
 		std::cout << e.what();
 	}
 
+	try
+	{
+		AForm *form = intern.makeForm("presidential pardon", "target");
+		delete form;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what();
+	}
+
+	try
+	{
+		AForm *form = intern.makeForm("shrubbery creation", "target");
+		delete form;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what();
+	}
+
+	try
+	{
+		AForm *form = intern.makeForm("robotomy request", "target");
+		delete form;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what();
+	}
 	return EXIT_SUCCESS;
 }

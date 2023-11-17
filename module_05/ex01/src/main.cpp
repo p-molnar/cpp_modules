@@ -108,5 +108,16 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 
+	try
+	{
+		Form F_7("employment contract", 15, 20);
+		Bureaucrat B_8("Hedvig", 3);
+		B_8.signForm(F_7);
+		B_8.signForm(F_7);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return EXIT_SUCCESS;
 }

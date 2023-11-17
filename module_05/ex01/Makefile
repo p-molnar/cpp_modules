@@ -17,6 +17,7 @@ SRC		=	main.cpp										\
 			Form/Form.cpp									\
 			Form/Form_GradeTooHighException.cpp				\
 			Form/Form_GradeTooLowException.cpp				\
+			Form/Form_FormAlreadySignedException.cpp		\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 

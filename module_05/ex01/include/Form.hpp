@@ -8,6 +8,13 @@ class Bureaucrat;
 
 class Form
 {
+	class FormAlreadySignedException : public std::exception
+	{
+	public:
+		FormAlreadySignedException(void);
+		virtual const char *what() const throw();
+	};
+
 	class GradeTooHighException : public std::exception
 	{
 	public:
