@@ -38,5 +38,12 @@ int main(void)
 	B_3.executeForm(RRF);
 	B_3.executeForm(PPR);
 	std::cout << "\n";
+
+	Bureaucrat B_4("Daniel", 5);
+	B_3.executeForm(SCF);
+	std::cout << SCF << '\n';
+	B_3.signForm(SCF);
+	B_3.executeForm(SCF);
+	std::cout << "\n";
 	return EXIT_SUCCESS;
 }
