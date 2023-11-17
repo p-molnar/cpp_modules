@@ -6,34 +6,34 @@
 Form::Form(void)
 	: name("default"),
 	  is_signed(false),
-	  sign_grade(1),
-	  execute_grade(1)
+	  grade_to_sign(1),
+	  grade_to_execute(1)
 {
 }
 
 Form::Form(std::string name,
-		   const int sign_grade,
-		   const int execute_grade)
+		   const int grade_to_sign,
+		   const int grade_to_execute)
 	: name(name),
 	  is_signed(false),
-	  sign_grade(sign_grade),
-	  execute_grade(execute_grade)
+	  grade_to_sign(grade_to_sign),
+	  grade_to_execute(grade_to_execute)
 {
-	if (sign_grade < HIGHEST_GRADE || execute_grade < HIGHEST_GRADE)
+	if (grade_to_sign < HIGHEST_GRADE || grade_to_execute < HIGHEST_GRADE)
 		throw Form::GradeTooHighException();
-	else if (sign_grade > LOWEST_GRADE || execute_grade > LOWEST_GRADE)
+	else if (grade_to_sign > LOWEST_GRADE || grade_to_execute > LOWEST_GRADE)
 		throw Form::GradeTooLowException();
 }
 
 Form::Form(const Form &obj)
 	: name(obj.name),
 	  is_signed(obj.is_signed),
-	  sign_grade(obj.sign_grade),
-	  execute_grade(obj.execute_grade)
+	  grade_to_sign(obj.grade_to_sign),
+	  grade_to_execute(obj.grade_to_execute)
 {
-	if (sign_grade < HIGHEST_GRADE || execute_grade < HIGHEST_GRADE)
+	if (grade_to_sign < HIGHEST_GRADE || grade_to_execute < HIGHEST_GRADE)
 		throw Form::GradeTooHighException();
-	else if (sign_grade > LOWEST_GRADE || execute_grade > LOWEST_GRADE)
+	else if (grade_to_sign > LOWEST_GRADE || grade_to_execute > LOWEST_GRADE)
 		throw Form::GradeTooLowException();
 }
 
@@ -50,7 +50,7 @@ std::ostream &operator<<(std::ostream &os, const Form &obj)
 	os << "Form\n";
 	os << "- name: " << obj.getName() << '\n';
 	os << "- is_signed: " << obj.getIsSigned() << '\n';
-	os << "- execute_grade: " << obj.getExecuteGrade() << '\n';
-	os << "- sign_grade: " << obj.getSignGrade() << '\n';
+	os << "- grade_to_execute: " << obj.getExecuteGrade() << '\n';
+	os << "- grade_to_sign: " << obj.getSignGrade() << '\n';
 	return os;
 }

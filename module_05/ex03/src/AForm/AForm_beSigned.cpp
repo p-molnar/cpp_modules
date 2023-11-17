@@ -3,7 +3,7 @@
 
 void AForm::beSigned(const Bureaucrat &bureaucrat)
 {
-	if (bureaucrat.getGrade() > sign_grade)
+	if (bureaucrat.getGrade() > grade_to_sign)
 		throw AForm::GradeTooLowException();
 	this->is_signed = true;
 }

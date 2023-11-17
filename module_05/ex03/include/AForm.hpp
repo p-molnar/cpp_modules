@@ -25,15 +25,15 @@ class AForm
 private:
 	const std::string name;
 	bool is_signed;
-	const int sign_grade;
-	const int execute_grade;
+	const int grade_to_sign;
+	const int grade_to_execute;
 
 	// instantiation / destroying related member functions
 public:
 	AForm(void);
 	AForm(std::string name,
-		  const int sign_grade,
-		  const int execute_grade);
+		  const int grade_to_sign,
+		  const int grade_to_execute);
 	AForm(const AForm &obj);
 	AForm &operator=(const AForm &obj);
 	virtual ~AForm(void);

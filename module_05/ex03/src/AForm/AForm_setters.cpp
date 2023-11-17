@@ -12,10 +12,10 @@ bool AForm::getIsSigned(void) const
 
 int AForm::getSignGrade(void) const
 {
-	return sign_grade;
+	return grade_to_sign;
 }
 
 int AForm::getExecuteGrade(void) const
 {
-	return execute_grade;
+	return grade_to_execute;
 }

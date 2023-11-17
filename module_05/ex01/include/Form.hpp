@@ -25,14 +25,14 @@ class Form
 private:
 	const std::string name;
 	bool is_signed;
-	const int sign_grade;
-	const int execute_grade;
+	const int grade_to_sign;
+	const int grade_to_execute;
 
 public:
 	Form(void);
 	Form(std::string name,
-		 const int sign_grade,
-		 const int execute_grade);
+		 const int grade_to_sign,
+		 const int grade_to_execute);
 	Form(const Form &obj);
 	Form &operator=(const Form &obj);
 	~Form(void);
