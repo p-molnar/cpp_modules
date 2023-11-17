@@ -94,5 +94,12 @@ int main(void)
 	{
 		std::cout << e.what();
 	}
+
+	Form F_6("non-disclosure agreements", 15, 20);
+	std::cout << F_6;
+	Bureaucrat B_8("Gerogie", 3);
+	B_8.signForm(F_6);
+	std::cout << F_6;
+
 	return EXIT_SUCCESS;
 }
