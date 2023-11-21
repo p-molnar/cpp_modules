@@ -13,6 +13,9 @@ int main(void)
 	ShrubberyCreationForm SCF("Daniel");
 	RobotomyRequestForm RRF("Edward");
 	PresidentialPardonForm PPR("Fiona");
+	std::cout << SCF << '\n';
+	std::cout << RRF << '\n';
+	std::cout << PPR << '\n';
 
 	std::cout << "\n\n";
 
@@ -49,7 +52,6 @@ int main(void)
 
 	Bureaucrat B_4("Daniel", 5);
 	B_3.executeForm(SCF);
-	std::cout << SCF << '\n';
 	B_3.signForm(SCF);
 	B_3.executeForm(SCF);
 	std::cout << "\n";
