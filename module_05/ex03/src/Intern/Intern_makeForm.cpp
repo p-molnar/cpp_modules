@@ -14,18 +14,6 @@ AForm *Intern::makeForm(std::string form_name, std::string target) const
 		new PresidentialPardonForm(target),
 		new ShrubberyCreationForm(target)};
 
-	// AForm *(*fn_ptr[form_size])(std::string) =
-	// 	{
-	// 		getRobotomyRequestForm,
-	// 		getPresidentialPardonForm,
-	// 		getShrubberyCreationForm};
-
-	// std::string fn_names[form_size] =
-	// 	{
-	// 		"robotomy request",
-	// 		"presidential pardon",
-	// 		"shrubbery creation"};
-
 	for (int i = 0; i < form_size; i++)
 	{
 		if (forms[i]->getName() == form_name)
@@ -35,9 +23,7 @@ AForm *Intern::makeForm(std::string form_name, std::string target) const
 	}
 
 	if (return_form)
-	{
 		std::cout << "Intern creates " << form_name << '\n';
-	}
 	else
 		throw Intern::NoFormFoundException();
 
