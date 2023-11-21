@@ -2,20 +2,17 @@
 #include <iostream>
 
 RobotomyRequestForm::RobotomyRequestForm(void)
-	: AForm("RobotomyRequestForm", 72, 45)
+	: AForm("RobotomyRequestForm", 72, 45, "default")
 {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: AForm("RobotomyRequestForm", 72, 45)
+	: AForm("RobotomyRequestForm", 72, 45, target)
 {
-	std::cout << "Drilling noises Grrr\n"
-			  << target << " has been robotomized successfully 50% of the"
-			  << " time. Otherwise robotomy failed.\n";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj)
-	: AForm(obj.getName(), obj.getSignGrade(), obj.getExecuteGrade())
+	: AForm(obj.getName(), obj.getSignGrade(), obj.getExecuteGrade(), obj.getTarget())
 {
 }
 

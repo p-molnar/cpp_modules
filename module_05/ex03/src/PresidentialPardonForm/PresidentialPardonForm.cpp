@@ -2,17 +2,20 @@
 #include <iostream>
 
 PresidentialPardonForm::PresidentialPardonForm(void)
-	: AForm("PresidentialPardonForm", 25, 5)
+	: AForm("PresidentialPardonForm", 25, 5, "default")
 {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
-	: AForm("PresidentialPardonForm", 25, 5)
+	: AForm("PresidentialPardonForm", 25, 5, target)
 {
-	std::cout << target << " has been pardoned by Zaphod Beeblebrox.\n";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) : AForm(obj.getName(), obj.getSignGrade(), obj.getExecuteGrade())
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj)
+	: AForm(obj.getName(),
+			obj.getSignGrade(),
+			obj.getExecuteGrade(),
+			obj.getTarget())
 {
 }
 

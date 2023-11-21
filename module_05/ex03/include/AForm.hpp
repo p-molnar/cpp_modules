@@ -41,13 +41,15 @@ private:
 	bool is_signed;
 	const int grade_to_sign;
 	const int grade_to_execute;
+	const std::string target;
 
 	// instantiation / destroying related member functions
 public:
 	AForm(void);
 	AForm(std::string name,
 		  const int grade_to_sign,
-		  const int grade_to_execute);
+		  const int grade_to_execute,
+		  const std::string target);
 	AForm(const AForm &obj);
 	AForm &operator=(const AForm &obj);
 	virtual ~AForm(void);
@@ -58,6 +60,7 @@ public:
 	bool getIsSigned(void) const;
 	int getSignGrade(void) const;
 	int getExecuteGrade(void) const;
+	std::string getTarget(void) const;
 
 	// setters
 public:

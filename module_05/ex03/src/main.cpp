@@ -60,7 +60,9 @@ int main(void)
 
 	try
 	{
-		AForm *form = intern.makeForm("presidential pardon", "target");
+		AForm *form = intern.makeForm("RobotomyRequestForm", "target");
+		form->beSigned(Boss);
+		form->execute(Boss);
 		delete form;
 	}
 	catch (std::exception &e)
@@ -70,7 +72,7 @@ int main(void)
 
 	try
 	{
-		AForm *form = intern.makeForm("shrubbery creation", "target");
+		AForm *form = intern.makeForm("ShrubberyCreationForm", "target");
 		delete form;
 	}
 	catch (std::exception &e)
@@ -80,7 +82,7 @@ int main(void)
 
 	try
 	{
-		AForm *form = intern.makeForm("robotomy request", "target");
+		AForm *form = intern.makeForm("PresidentialPardonForm", "target");
 		delete form;
 	}
 	catch (std::exception &e)
