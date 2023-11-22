@@ -1,6 +1,6 @@
 NAME	:=	converter	
 CC		:=	c++
-CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98 -g
+CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
 CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
 CPPFLAGS+=	-MMD -MP
 LDFLAGS	?=	
