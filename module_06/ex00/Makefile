@@ -1,13 +1,15 @@
 NAME	:=	converter	
 CC		:=	c++
-CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
+CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98 -g
 CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
 CPPFLAGS+=	-MMD -MP
-LDFLAGS	?=
+LDFLAGS	?=	
 INCLUDE	=	include/
-SRC		=	main.cpp													\
-			ScalarConverter_convert.cpp									\
-			ScalarConverter_InvalidNumericalFormatException.cpp			\
+SRC		=	main.cpp												\
+			ScalarConverter_convert.cpp								\
+			ScalarConverter_printConversions.cpp					\
+			ScalarConverter_InvalidNumericalFormatException.cpp		\
+
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 

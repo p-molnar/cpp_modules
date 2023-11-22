@@ -1,6 +1,14 @@
 #include "ScalarConverter.hpp"
+#include <cstdlib>
+#include <iostream>
+#include <cmath>
 
-int main(void)
+int main(int argc, char *argv[])
 {
-	ScalarConverter::convert("97");
+	if (argc == 2)
+	{
+		ScalarConverter::convert(argv[1]);
+		return EXIT_SUCCESS;
+	}
+	return EXIT_FAILURE;
 }

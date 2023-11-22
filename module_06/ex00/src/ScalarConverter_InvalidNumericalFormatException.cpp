@@ -7,5 +7,5 @@ ScalarConverter::InvalidNumericalFormatException::InvalidNumericalFormatExceptio
 
 const char *ScalarConverter::InvalidNumericalFormatException::what(void) const throw()
 {
-	return "invalid numerical format";
+	return "invalid numerical format\n";
 }
