@@ -17,7 +17,7 @@ private:
 	ScalarConverter(){};
 
 private:
-	static bool isValidNumericalFormat(std::string num_arg);
+	static void isValidNumericalFormat(std::string num_arg);
 	static void printCharConversion(double number);
 	static void printIntConversion(double number);
 	static void printFloatConversion(double number, int precision);

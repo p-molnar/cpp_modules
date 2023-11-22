@@ -1,6 +1,9 @@
 # to print the executed command
 set -x
 
+./converter abcdef
+echo
+
 # non print char 
 ./converter 0
 echo
