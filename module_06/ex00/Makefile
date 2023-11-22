@@ -9,6 +9,7 @@ SRC		=	main.cpp												\
 			ScalarConverter_convert.cpp								\
 			ScalarConverter_printConversions.cpp					\
 			ScalarConverter_InvalidNumericalFormatException.cpp		\
+			ScalarConverter_isValidNumericalFormat.cpp				\
 
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))

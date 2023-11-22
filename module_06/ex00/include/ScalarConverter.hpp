@@ -17,11 +17,11 @@ private:
 	ScalarConverter(){};
 
 private:
-	void static isValidNumericalFormat(std::string num_arg);
-	void static printCharConversion(double number);
-	void static printIntConversion(double number);
-	void static printFloatConversion(double number, int precision);
-	void static printDoubleConversion(double number, int precision);
+	static bool isValidNumericalFormat(std::string num_arg);
+	static void printCharConversion(double number);
+	static void printIntConversion(double number);
+	static void printFloatConversion(double number, int precision);
+	static void printDoubleConversion(double number, int precision);
 
 public:
 	static void convert(const std::string n);
