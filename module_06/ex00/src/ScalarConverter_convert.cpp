@@ -13,9 +13,10 @@ void ScalarConverter::convert(std::string num_arg)
 
 		double number = std::strtod(str, &str_end);
 
-		int precision = num_arg.find('.') == std::string::npos
-							? 1
-							: num_arg.length() - num_arg.find('.') - 1;
+		bool is_double = num_arg.find('.') != std::string::npos;
+		bool is_float = is_double && num_arg.find('f') != std::string::npos;
+		int decimal_len = num_arg.length() - num_arg.find('.') - 1;
+		int precision = is_double ? decimal_len - is_float : 1;
 
 		printCharConversion(number);
 		printIntConversion(number);
