@@ -6,6 +6,7 @@ CPPFLAGS+=	-MMD -MP
 LDFLAGS	?=	
 INCLUDE	=	include/
 SRC		=	main.cpp												\
+			ScalarConverter.cpp										\
 			ScalarConverter_convert.cpp								\
 			ScalarConverter_printConversions.cpp					\
 			ScalarConverter_InvalidNumericalFormatException.cpp		\
