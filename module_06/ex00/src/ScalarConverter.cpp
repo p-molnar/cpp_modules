@@ -1,6 +1,6 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter() {}
+ScalarConverter::ScalarConverter(void) {}
 
 ScalarConverter::ScalarConverter(const ScalarConverter &obj)
 {
@@ -13,4 +13,4 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter obj)
 	return *this;
 }
 
-ScalarConverter::~ScalarConverter() {}
+ScalarConverter::~ScalarConverter(void) {}

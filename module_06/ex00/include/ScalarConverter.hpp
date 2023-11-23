@@ -14,10 +14,10 @@ class ScalarConverter
 	};
 
 private:
-	ScalarConverter();
+	ScalarConverter(void);
 	ScalarConverter(const ScalarConverter &obj);
 	ScalarConverter &operator=(const ScalarConverter obj);
-	~ScalarConverter();
+	~ScalarConverter(void);
 
 private:
 	static void isValidNumericalFormat(std::string num_arg);
