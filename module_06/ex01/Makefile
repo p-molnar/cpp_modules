@@ -6,6 +6,7 @@ CPPFLAGS+=	-MMD -MP
 LDFLAGS	?=	
 INCLUDE	=	include/
 SRC		=	main.cpp												\
+			Serializer.cpp											\
 			Serializer_serialize.cpp								\
 			Serializer_deserialize.cpp								\
 

@@ -6,7 +6,10 @@
 class Serializer
 {
 private:
-	Serializer(){};
+	Serializer(void);
+	Serializer(const Serializer &);
+	Serializer &operator=(const Serializer &obj);
+	~Serializer(void);
 
 public:
 	static uintptr_t serialize(Data *ptr);
