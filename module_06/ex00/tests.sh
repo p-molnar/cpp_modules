@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # to print the executed command
 set -x
 
