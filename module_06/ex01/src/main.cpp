@@ -5,10 +5,16 @@
 
 int main(void)
 {
-	Data data = {.first_name = "Peter",
-				 .last_name = "Molnar",
-				 .email_address = "peter_molnar@email.com",
-				 .phone_number = "01-234-5678"};
+
+	// Data data = {.first_name = "Peter",
+	// 			 .last_name = "Molnar",
+	// 			 .email_address = "peter_molnar@email.com",
+	// 			 .phone_number = "01-234-5678"};
+
+	Data data = {"Peter",
+				 "Molnar",
+				 "peter_molnar@email.com",
+				 "01-234-5678"};
 
 	std::cout << "Data dump pre serialization:\n";
 	std::cout << "first_name = " << data.first_name << '\n';
