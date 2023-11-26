@@ -51,10 +51,8 @@ AForm::~AForm(void) {}
 
 std::ostream &operator<<(std::ostream &os, const AForm &obj)
 {
-	std::string bool_arr[] = {"false", "true"};
-
 	os << "- name: " << obj.getName() << '\n';
-	os << "- is_signed: " << bool_arr[obj.getIsSigned()] << '\n';
+	os << "- is_signed: " << std::boolalpha << obj.getIsSigned() << '\n';
 	os << "- grade_to_execute: " << obj.getExecuteGrade() << '\n';
 	os << "- grade_to_sign: " << obj.getSignGrade() << '\n';
 	os << "- target: " << obj.getTarget() << '\n';
