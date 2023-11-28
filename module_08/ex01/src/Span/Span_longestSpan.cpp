@@ -4,7 +4,7 @@
 
 unsigned int Span::longestSpan(void)
 {
-	if (elements.size() < 1)
+	if (elements.size() < 2)
 		throw std::runtime_error("No span can be found");
 
 	int min_el = *std::min_element(elements.begin(), elements.end());

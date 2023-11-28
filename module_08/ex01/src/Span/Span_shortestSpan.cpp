@@ -4,7 +4,7 @@
 
 unsigned int Span::shortestSpan(void)
 {
-	if (elements.size() < 1)
+	if (elements.size() < 2)
 		throw std::runtime_error("No span can be found");
 
 	std::vector<int> elements_copy = elements;
