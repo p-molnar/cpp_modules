@@ -1,5 +1,6 @@
 #include "Span.hpp"
 #include <iostream>
+#include <cstdlib>
 
 int main(void)
 {
@@ -107,4 +108,5 @@ int main(void)
 			std::cout << e.what() << '\n';
 		}
 	}
+	return EXIT_SUCCESS;
 }
