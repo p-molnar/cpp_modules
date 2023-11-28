@@ -73,4 +73,38 @@ int main(void)
 			std::cout << e.what() << '\n';
 		}
 	}
+
+	std::cout << std::endl;
+
+	{
+		Span sp = Span(10);
+		try
+		{
+			std::vector<int> vec(5, 10);
+			sp.addNumber(std::begin(vec), std::end(vec));
+
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << '\n';
+		}
+	}
+
+	std::cout << std::endl;
+
+	{
+		Span sp = Span(100000);
+		try
+		{
+			sp.fillWithRandomValues();
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << '\n';
+		}
+	}
 }
