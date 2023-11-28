@@ -8,14 +8,8 @@
 template <typename C>
 void print_elements(C container)
 {
-	typename C::const_iterator it = container.cbegin();
-	typename C::const_iterator ite = container.cend();
-	while (it != ite)
-	{
+	for (typename C::iterator it = container.begin(); it != container.end(); ++it)
 		std::cout << *it << ", ";
-		it++;
-	}
-	std::cout << std::endl;
 }
 
 int main(void)
@@ -28,14 +22,25 @@ int main(void)
 			vec.push_back(count);
 
 		print_elements(vec);
+		std::cout << std::endl;
 		int lookup_val = 4;
-		std::cout << "easyfind(vect, " << lookup_val << ")\n";
-		std::cout << easyfind(vec, lookup_val) << '\n';
-		lookup_val = -1;
-		std::cout << "easyfind(vect, " << lookup_val << ")\n";
+		std::cout << "easyfind(vec, " << lookup_val << ")\n";
 		try
 		{
-			std::cout << easyfind(vec, lookup_val) << '\n';
+			easyfind(vec, lookup_val);
+			std::cout << "lookup_val is in container\n";
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+		lookup_val = -1;
+		std::cout << "easyfind(vec, " << lookup_val << ")\n";
+		try
+		{
+			easyfind(vec, lookup_val);
+			std::cout << "lookup_val is in container\n";
 		}
 		catch (const std::exception &e)
 		{
@@ -52,14 +57,25 @@ int main(void)
 			deq.push_back(count);
 
 		print_elements(deq);
+		std::cout << std::endl;
 		int lookup_val = 4;
-		std::cout << "easyfind(vect, " << lookup_val << ")\n";
-		std::cout << easyfind(deq, lookup_val) << '\n';
-		lookup_val = -1;
-		std::cout << "easyfind(vect, " << lookup_val << ")\n";
+		std::cout << "easyfind(deq, " << lookup_val << ")\n";
 		try
 		{
-			std::cout << easyfind(deq, lookup_val) << '\n';
+			easyfind(deq, lookup_val);
+			std::cout << "lookup_val is in container\n";
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+		lookup_val = -1;
+		std::cout << "easyfind(deq, " << lookup_val << ")\n";
+		try
+		{
+			easyfind(deq, lookup_val);
+			std::cout << "lookup_val is in container\n";
 		}
 		catch (const std::exception &e)
 		{
@@ -68,7 +84,7 @@ int main(void)
 		std::cout << std::endl;
 	}
 
-	// deque
+	// list
 	{
 		std::cout << "list\n";
 		std::list<int> lst;
@@ -76,14 +92,25 @@ int main(void)
 			lst.push_back(count);
 
 		print_elements(lst);
+		std::cout << std::endl;
 		int lookup_val = 4;
-		std::cout << "easyfind(vect, " << lookup_val << ")\n";
-		std::cout << easyfind(lst, lookup_val) << '\n';
-		lookup_val = -1;
-		std::cout << "easyfind(vect, " << lookup_val << ")\n";
+		std::cout << "easyfind(lst, " << lookup_val << ")\n";
 		try
 		{
-			std::cout << easyfind(lst, lookup_val) << '\n';
+			easyfind(lst, lookup_val);
+			std::cout << "lookup_val is in container\n";
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+		lookup_val = -1;
+		std::cout << "easyfind(lst, " << lookup_val << ")\n";
+		try
+		{
+			easyfind(lst, lookup_val);
+			std::cout << "lookup_val is in container\n";
 		}
 		catch (const std::exception &e)
 		{

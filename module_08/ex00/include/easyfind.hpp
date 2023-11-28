@@ -2,20 +2,15 @@
 #define EASYFIND__HPP
 
 #include <stdexcept>
+#include <algorithm>
 
 template <typename C>
-int easyfind(const C &container, int lookup_val)
+void easyfind(const C &container, int lookup_val)
 {
-	typename C::const_iterator it;
-	typename C::const_iterator ite = container.cend();
-	unsigned int idx = 0;
+	typename C::const_iterator iter = std::find(container.cbegin(), container.cend(), lookup_val);
 
-	for (it = container.cbegin(); it != ite; ++it, idx++)
-	{
-		if (*it == lookup_val)
-			return idx;
-	}
-	throw(std::runtime_error("value not found"));
+	if (iter == container.cend())
+		throw(std::runtime_error("value not found"));
 }
 
 #endif
