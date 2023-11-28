@@ -18,7 +18,13 @@ public:
 	~Span(void);
 
 public:
+	template <typename C>
+	void addNumber(C it, C ite)
+	{
+		elements.insert(elements.end(), it, ite);
+	}
 	void addNumber(int);
+	void fillWithRandomValues(void);
 	unsigned int shortestSpan(void);
 	unsigned int longestSpan(void);
 };
