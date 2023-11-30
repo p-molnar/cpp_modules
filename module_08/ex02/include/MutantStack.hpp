@@ -39,7 +39,7 @@ public:
 			return *this;
 		}
 
-		iterator &operator++(T)
+		iterator &operator++(int)
 		{
 			iterator tmp = *this;
 			ptr++;
@@ -52,7 +52,7 @@ public:
 			return *this;
 		}
 
-		iterator &operator--(T)
+		iterator &operator--(int)
 		{
 			iterator tmp = *this;
 			ptr--;

@@ -1,11 +1,13 @@
 #include "MutantStack.hpp"
 #include <list>
 #include <iostream>
+#include <iomanip>
 
 int main()
 {
-	std::cout << "MutantStack\n";
+	srand(time(NULL));
 	{
+		std::cout << "MutantStack<int>\n";
 		MutantStack<int> mstack;
 		mstack.push(5);
 		mstack.push(17);
@@ -19,17 +21,19 @@ int main()
 		MutantStack<int>::iterator ite = mstack.end();
 		++it;
 		--it;
+
 		while (it != ite)
 		{
-			std::cout << *it << std::endl;
+			std::cout << *it << " ";
 			++it;
 		}
+		std::cout << std::endl;
 		std::stack<int> s(mstack);
+		std::cout << "\n";
 	}
 
-	std::cout << "\n";
-	std::cout << "std::list\n";
 	{
+		std::cout << "std::list<int>\n";
 		std::list<int> lst;
 		lst.push_back(5);
 		lst.push_back(17);
@@ -45,21 +49,65 @@ int main()
 		--it;
 		while (it != ite)
 		{
-			std::cout << *it << std::endl;
+			std::cout << *it << " ";
 			++it;
 		}
+		std::cout << std::endl;
 		std::list<int> s(lst);
+		std::cout << "\n";
 	}
 
 	// requires C++11 compilation flag
-	std::cout << "MutantStack with range based loop\n";
-	{
-		MutantStack<int> mstack;
-		for (int i = 0; i < 5; i++)
-			mstack.push(i);
+	// std::cout << "MutantStack with range based loop\n";
+	// {
+	// 	MutantStack<int> mstack;
+	// 	for (int i = 0; i < 5; i++)
+	// 		mstack.push(i);
 
-		for (int el : mstack)
-			std::cout << el << '\n';
+	// 	for (int el : mstack)
+	// 		std::cout << el << '\n';
+	// }
+
+	{
+		std::cout << "MutantStack<float>\n";
+		MutantStack<float> mstack;
+		for (int i = 0; i < 10; i++)
+		{
+			mstack.push(rand() % 10 / 10.0);
+		}
+
+		MutantStack<float>::iterator it = mstack.begin();
+		MutantStack<float>::iterator ite = mstack.end();
+
+		while (it != ite)
+		{
+			std::cout << std::setprecision(3);
+			std::cout << std::fixed;
+			std::cout << *it << " ";
+			++it;
+		}
+		std::cout << std::endl;
+		std::cout << '\n';
+	}
+
+	{
+		std::cout << "MutantStack<bool>\n";
+		MutantStack<bool> mstack;
+		for (int i = 0; i < 10; i++)
+		{
+			mstack.push(rand() % 2);
+		}
+
+		MutantStack<bool>::iterator it = mstack.begin();
+		MutantStack<bool>::iterator ite = mstack.end();
+
+		while (it != ite)
+		{
+			std::cout << std::boolalpha << *it << " ";
+			++it;
+		}
+		std::cout << std::endl;
+		std::cout << '\n';
 	}
 
 	return EXIT_SUCCESS;
