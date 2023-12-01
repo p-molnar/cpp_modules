@@ -1,6 +1,9 @@
 #include "Span.hpp"
 #include <iostream>
 #include <cstdlib>
+#include <iterator>
+#include <list>
+#include <vector>
 
 int main(void)
 {
@@ -14,6 +17,7 @@ int main(void)
 			sp.addNumber(9);
 			sp.addNumber(11);
 
+			sp.print_vec();
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
 		}
@@ -33,6 +37,7 @@ int main(void)
 			{
 				sp.addNumber(i);
 			}
+			sp.print_vec();
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
 		}
@@ -49,6 +54,7 @@ int main(void)
 		try
 		{
 			sp.addNumber(2);
+			sp.print_vec();
 			sp.addNumber(3);
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
@@ -66,6 +72,7 @@ int main(void)
 		try
 		{
 			sp.addNumber(2);
+			sp.print_vec();
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
 		}
@@ -79,11 +86,13 @@ int main(void)
 
 	{
 		Span sp = Span(10);
+		std::vector<int> v;
+		v.insert(v.begin(), 5, 3);
 		try
 		{
-			std::vector<int> vec(5, 10);
-			sp.addNumber(std::begin(vec), std::end(vec));
+			sp.fill(v.begin(), v.end());
 
+			sp.print_vec();
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
 		}
@@ -96,10 +105,11 @@ int main(void)
 	std::cout << std::endl;
 
 	{
-		Span sp = Span(100000);
+		Span sp = Span(10000);
 		try
 		{
 			sp.fillWithRandomValues();
+			sp.print_vec();
 			std::cout << sp.shortestSpan() << std::endl;
 			std::cout << sp.longestSpan() << std::endl;
 		}

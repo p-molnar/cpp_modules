@@ -8,7 +8,6 @@ INCLUDE	=	include/
 SRC		=	main.cpp													\
 			Span/Span.cpp												\
 			Span/Span_addNumber.cpp										\
-			Span/Span_fillWithRandomValues.cpp							\
 			Span/Span_shortestSpan.cpp									\
 			Span/Span_longestSpan.cpp									\
 

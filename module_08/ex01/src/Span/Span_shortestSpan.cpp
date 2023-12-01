@@ -1,6 +1,7 @@
 #include "Span.hpp"
 #include <algorithm>
 #include <vector>
+#include <stdexcept>
 
 unsigned int Span::shortestSpan(void)
 {
