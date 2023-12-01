@@ -1,5 +1,6 @@
 #include <iostream>
 #include <Array.hpp>
+#include <cstdlib>
 
 #define MAX_VAL 750
 void check_leaks(void)
@@ -9,7 +10,8 @@ void check_leaks(void)
 
 int main(int, char **)
 {
-    atexit(check_leaks);
+    // only macos machines
+    // atexit(check_leaks);
     Array<int> numbers(MAX_VAL);
     int *mirror = new int[MAX_VAL];
     srand(time(NULL));
