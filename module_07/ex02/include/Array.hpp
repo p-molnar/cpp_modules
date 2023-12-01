@@ -17,7 +17,6 @@ public:
 
 	Array<T> &operator=(const Array<T> &obj)
 	{
-		std::cout << "copy assignemnt called\n";
 		if (this != &obj)
 		{
 			delete[] elements;
