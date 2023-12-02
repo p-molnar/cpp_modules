@@ -5,7 +5,7 @@ template <typename T>
 
 void swap(T &x, T &y)
 {
-	const T tmp = x;
+	T tmp = x;
 	x = y;
 	y = tmp;
 }
