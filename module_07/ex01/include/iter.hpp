@@ -3,11 +3,11 @@
 
 #include <iostream>
 
-template <typename T>
-void iter(T *array, int len, T fn(T))
+template <typename T, typename Func>
+void iter(T *array, int len, Func fn)
 {
 	for (int i = 0; i < len; i++)
-		array[i] = fn(array[i]);
+		fn(array[i]);
 }
 
 #endif

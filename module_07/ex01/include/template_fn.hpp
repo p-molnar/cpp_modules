@@ -4,14 +4,14 @@
 #include <iostream>
 
 template <typename T>
-T double_num(T number)
+void double_num(T number)
 {
-	return 2 * number;
+	std::cout << 2 * number << '\n';
 }
 
 template <typename T>
-T halve_num(T number)
+void halve_num(T number)
 {
-	return number / 2.0;
+	std::cout << number / 2.0 << '\n';
 }
 #endif
