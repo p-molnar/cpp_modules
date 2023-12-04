@@ -1,5 +1,7 @@
 #include "utils.hpp"
 #include "BitcoinExchange.hpp"
+#include "ExchangeDate.hpp"
+#include "ExchangeRate.hpp"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -12,25 +14,21 @@ void BitcoinExchange::loadExchangeData(std::string path)
 	if (file.is_open())
 	{
 		std::string line;
-		bool is_first_line = true;
+
+		// skip header of file
+		std::getline(file, line);
 		while (std::getline(file, line))
 		{
-			// skip header
-			if (is_first_line)
-			{
-				is_first_line = false;
-				continue;
-			}
 			std::vector<std::string> parts = split(line, ",");
 			if (parts.size() != 2)
 				throw std::runtime_error("parse error: line contains too many data");
-			std::string date = trim(parts[0]);
-			int x_rate = strtod(trim(parts[1]).c_str(), NULL);
-			if (x_rate < 0)
-				throw std::runtime_error("parse error: negative exchange rate");
-			std::cout << "date: '" << date << "' x_rate: '" << x_rate << "'\n";
+			std::cout << line << "\n";
+			rates[ExchangeDate(parts[0])] = ExchangeRate(parts[1]);
+			// ExchangeDate a = parts[0];
+			// ExchangeRate b = parts[1];
+			std::cout << "\n";
 		}
 	}
 	else
-		std::cout << "Unable to open file\n";
+		std::cout << "Error: " << strerror(errno) << '\n';
 }

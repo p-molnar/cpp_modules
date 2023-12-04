@@ -3,6 +3,9 @@
 
 #include <map>
 #include <string>
+#include "ExchangeDate.hpp"
+#include "ExchangeRate.hpp"
+#include "HoldingValue.hpp"
 
 class BitcoinExchange
 {
@@ -17,7 +20,8 @@ public:
 	void loadExchangeData(std::string path);
 	void loadHoldingData(std::string path);
 
-	// private:
+private:
+	std::map<ExchangeDate, ExchangeRate> rates;
 };
 
 #endif

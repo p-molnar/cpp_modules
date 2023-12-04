@@ -1,14 +1,18 @@
 NAME	:=	btc
 CC		:=	c++
-CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98
+CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98 -g
 CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
 CPPFLAGS+=	-MMD -MP
-LDFLAGS	?=
+LDFLAGS	?=	-fsanitize=address
 INCLUDE	=	include/
 SRC		=	main.cpp													\
 			utils.cpp													\
 			BitcoinExchange.cpp											\
 			BitcoinExchange_loadExchangeData.cpp						\
+			ExchangeDate.cpp											\
+			AValue.cpp													\
+			ExchangeRate.cpp											\
+			HoldingValue.cpp											\
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))
 
