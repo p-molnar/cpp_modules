@@ -24,5 +24,5 @@ protected:
 };
 
 bool operator<(const Value &lhs, const Value &rhs);
-
+std::ostream &operator<<(std::ostream &os, const Value &obj);
 #endif

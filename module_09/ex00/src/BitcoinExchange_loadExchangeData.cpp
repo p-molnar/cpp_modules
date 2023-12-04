@@ -22,11 +22,8 @@ void BitcoinExchange::loadExchangeData(std::string path)
 			std::vector<std::string> parts = split(line, ",");
 			if (parts.size() != 2)
 				throw std::runtime_error("parse error: line contains too many data");
-			std::cout << line << "\n";
+
 			rates[ExchangeDate(parts[0])] = ExchangeRate(parts[1]);
-			// ExchangeDate a = parts[0];
-			// ExchangeRate b = parts[1];
-			std::cout << "\n";
 		}
 	}
 	else

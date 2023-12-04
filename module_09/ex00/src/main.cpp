@@ -9,5 +9,8 @@ int main(int argc, char *argv[])
 	BitcoinExchange btc_x;
 	btc_x.loadExchangeData("/Users/pmolnar/Documents/Universities.nosync/Codam/42cursus/cpp/module_09/ex00/resources/data.csv");
 
+	std::cout << btc_x << '\n';
+	// btc_x.loadHoldingData();
+
 	return EXIT_SUCCESS;
 }

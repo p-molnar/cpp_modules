@@ -3,6 +3,7 @@
 
 #include <map>
 #include <string>
+#include <iostream>
 #include "ExchangeDate.hpp"
 #include "ExchangeRate.hpp"
 #include "HoldingValue.hpp"
@@ -20,8 +21,10 @@ public:
 	void loadExchangeData(std::string path);
 	void loadHoldingData(std::string path);
 
-private:
+public:
 	std::map<ExchangeDate, ExchangeRate> rates;
 };
+
+std::ostream &operator<<(std::ostream &os, BitcoinExchange &data);
 
 #endif

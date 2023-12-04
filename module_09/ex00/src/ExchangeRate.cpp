@@ -9,13 +9,16 @@ ExchangeRate::ExchangeRate(std::string s) : Value(strtof(s.c_str(), NULL))
 	this->validateInput();
 }
 
-ExchangeRate::ExchangeRate(void) {}
-ExchangeRate::ExchangeRate(const ExchangeRate &obj) { (void)obj; }
+ExchangeRate::ExchangeRate(void) : Value(0) {}
+
+ExchangeRate::ExchangeRate(const ExchangeRate &obj) : Value(obj.getValue()) {}
+
 ExchangeRate &ExchangeRate::operator=(const ExchangeRate &obj)
 {
-	(void)obj;
+	value = obj.getValue();
 	return *this;
 }
+
 ExchangeRate ::~ExchangeRate(void) {}
 
 void ExchangeRate::validateInput(void)
@@ -23,4 +26,3 @@ void ExchangeRate::validateInput(void)
 	if (value < 0)
 		throw(std::runtime_error("negative exchange rate"));
 }
-

@@ -7,12 +7,14 @@
 
 ExchangeDate::ExchangeDate(void)
 {
+	date_s = "";
 	date.y = 0;
 	date.m = 0;
 	date.d = 0;
 }
 ExchangeDate::ExchangeDate(const ExchangeDate &obj)
 {
+	date_s = obj.date_s;
 	date.y = obj.date.y;
 	date.m = obj.date.m;
 	date.d = obj.date.d;
@@ -20,6 +22,7 @@ ExchangeDate::ExchangeDate(const ExchangeDate &obj)
 
 ExchangeDate &ExchangeDate::operator=(const ExchangeDate &obj)
 {
+	date_s = obj.date_s;
 	date.y = obj.date.y;
 	date.m = obj.date.m;
 	date.d = obj.date.d;
@@ -72,12 +75,10 @@ ExchangeDate::ExchangeDate(std::string date_input)
 	if (d <= 0 || d > day_count_per_month[m])
 		throw(std::runtime_error("invalid day value"));
 
-	std::cout << date_input << '\n';
-	std::cout << y << " " << m << " " << d << " \n";
+	this->date_s = date_input;
 	date.y = y;
 	date.m = m;
 	date.d = d;
-	date_s = date_input;
 }
 
 std::string ExchangeDate::getDateString(void) const
@@ -88,4 +89,10 @@ std::string ExchangeDate::getDateString(void) const
 bool operator<(const ExchangeDate &lhs, const ExchangeDate &rhs)
 {
 	return lhs.getDateString() < rhs.getDateString();
+}
+
+std::ostream &operator<<(std::ostream &os, const ExchangeDate &obj)
+{
+	os << obj.getDateString();
+	return os;
 }

@@ -27,3 +27,9 @@ bool operator<(const Value &lhs, const Value &rhs)
 {
 	return lhs.getValue() < rhs.getValue();
 }
+
+std::ostream &operator<<(std::ostream &os, const Value &obj)
+{
+	os << obj.getValue();
+	return os;
+}
