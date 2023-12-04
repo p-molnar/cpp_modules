@@ -39,15 +39,14 @@ ExchangeDate::ExchangeDate(std::string date_input)
 		throw(std::runtime_error("invalid date format\n"));
 
 	if (date_parts[0].length() != 4)
-		throw(std::runtime_error("invalid year format\n"));
+		throw(std::runtime_error("year must be of YYYY representation\n"));
 
 	if (date_parts[1].length() != 2)
-		throw(std::runtime_error("invalid month format\n"));
+		throw(std::runtime_error("month value must be of MM representation\n"));
 
 	if (date_parts[2].length() != 2)
-		throw(std::runtime_error("invalid date format\n"));
+		throw(std::runtime_error("day value must be of DD representation\n"));
 
-	// how 08 is converted?
 	int y = stod(date_parts[0]);
 	int m = stod(date_parts[1]);
 	int d = stod(date_parts[2]);
@@ -67,13 +66,13 @@ ExchangeDate::ExchangeDate(std::string date_input)
 	day_count_per_month[12] = 31;
 
 	if (y < 0)
-		throw(std::runtime_error("negative year value\n"));
+		throw(std::runtime_error("year out of bound"));
 
 	if (m <= 0 || m > 12)
-		throw(std::runtime_error("invalid month value"));
+		throw(std::runtime_error("month out of bound"));
 
 	if (d <= 0 || d > day_count_per_month[m])
-		throw(std::runtime_error("invalid day value"));
+		throw(std::runtime_error("day out of bound"));
 
 	this->date_s = date_input;
 	date.y = y;
@@ -89,6 +88,11 @@ std::string ExchangeDate::getDateString(void) const
 bool operator<(const ExchangeDate &lhs, const ExchangeDate &rhs)
 {
 	return lhs.getDateString() < rhs.getDateString();
+}
+
+bool operator==(const ExchangeDate &lhs, const ExchangeDate &rhs)
+{
+	return lhs.getDateString() == rhs.getDateString();
 }
 
 std::ostream &operator<<(std::ostream &os, const ExchangeDate &obj)

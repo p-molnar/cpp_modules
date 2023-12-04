@@ -31,5 +31,6 @@ private:
 };
 
 bool operator<(const ExchangeDate &lhs, const ExchangeDate &rhs);
+bool operator==(const ExchangeDate &lhs, const ExchangeDate &rhs);
 std::ostream &operator<<(std::ostream &os, const ExchangeDate &obj);
 #endif

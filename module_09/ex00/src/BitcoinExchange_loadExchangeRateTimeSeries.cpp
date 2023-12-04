@@ -6,7 +6,7 @@
 #include <iostream>
 #include <fstream>
 
-void BitcoinExchange::loadExchangeData(std::string path)
+void BitcoinExchange::loadExchangeRateTimeSeries(std::string path)
 {
 	std::ifstream file;
 	file.open(path);
@@ -21,9 +21,12 @@ void BitcoinExchange::loadExchangeData(std::string path)
 		{
 			std::vector<std::string> parts = split(line, ",");
 			if (parts.size() != 2)
-				throw std::runtime_error("parse error: line contains too many data");
+				throw std::runtime_error("bad input: 2 required fields: date, exchange_rate");
 
-			rates[ExchangeDate(parts[0])] = ExchangeRate(parts[1]);
+			ExchangeDate date(parts[0]);
+			ExchangeRate exchange_rate(parts[1]);
+
+			rates[date] = exchange_rate;
 		}
 	}
 	else

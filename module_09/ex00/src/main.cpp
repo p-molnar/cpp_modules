@@ -5,12 +5,16 @@
 
 int main(int argc, char *argv[])
 {
-	(void)argc, (void)argv;
-	BitcoinExchange btc_x;
-	btc_x.loadExchangeData("/Users/pmolnar/Documents/Universities.nosync/Codam/42cursus/cpp/module_09/ex00/resources/data.csv");
+	if (argc != 2)
+	{
+		std::cout << "Usage: ./btc <holdings file path>\n";
+		return EXIT_FAILURE;
+	}
 
-	std::cout << btc_x << '\n';
-	// btc_x.loadHoldingData();
+	BitcoinExchange btc_x;
+
+	btc_x.loadExchangeRateTimeSeries("resources/data.csv");
+	btc_x.exchangeHoldings(argv[1]);
 
 	return EXIT_SUCCESS;
 }

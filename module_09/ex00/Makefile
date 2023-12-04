@@ -8,7 +8,8 @@ INCLUDE	=	include/
 SRC		=	main.cpp													\
 			utils.cpp													\
 			BitcoinExchange.cpp											\
-			BitcoinExchange_loadExchangeData.cpp						\
+			BitcoinExchange_loadExchangeRateTimeSeries.cpp				\
+			BitcoinExchange_exchangeHoldings.cpp					\
 			ExchangeDate.cpp											\
 			AValue.cpp													\
 			ExchangeRate.cpp											\

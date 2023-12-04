@@ -22,5 +22,5 @@ HoldingValue ::~HoldingValue(void) {}
 void HoldingValue::validateInput(void)
 {
 	if (value < 0 || value > 1000)
-		throw std::runtime_error("holding value out of range\n");
+		throw std::runtime_error("holding value out of range");
 }

@@ -29,3 +29,27 @@ std::ostream &operator<<(std::ostream &os, BitcoinExchange &data)
 	}
 	return os;
 }
+
+ExchangeRate BitcoinExchange::getClosestExchangeRate(const ExchangeDate &date)
+{
+	ExchangeRate rate;
+	try
+	{
+		rate = rates.at(date);
+	}
+	catch (const std::exception &e)
+	{
+		std::map<ExchangeDate, ExchangeRate>::iterator it = rates.begin();
+
+		while (it->first < date && it != rates.end())
+			it++;
+		rate = it->second;
+	}
+
+	return rate;
+}
+
+float operator*(const HoldingValue &value, const ExchangeRate &exchange_rate)
+{
+	return value.getValue() * exchange_rate.getValue();
+}
