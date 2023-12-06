@@ -36,42 +36,71 @@ void RPN::validateInput(char c)
 	}
 }
 
-void RPN::evaluateExpression(void)
+double RPN::rpop(void)
 {
-	std::string operators = "+-/*";
+	double return_val = s.top();
+	s.pop();
+	return return_val;
+}
 
+void RPN::evaluateExpression()
+{
 	for (size_t i = 0; i < input.length(); i++)
 	{
-		if (std::isspace(input[i]))
-			continue;
-		else if (std::isdigit(input[i]))
-		{
-			s.push(input[i] - '0');
-		}
-		else if (operators.find(input[i]) != std::string::npos)
-		{
-			if (s.size() != 2)
-				throw std::runtime_error("Error");
+		char curr_char = input[i];
 
-			int result = 0;
-			int lhs = s.top();
-			s.pop();
-			int rhs = s.top();
-			s.pop();
-			if (input[i] == '+')
-				result += lhs + rhs;
-			else if (input[i] == '-')
-				result += lhs - rhs;
-			else if (input[i] == '/')
+		if (std::isspace(curr_char))
+		{
+			// skip whitespace
+			continue;
+		}
+		else if (std::isdigit(curr_char))
+		{
+			// push numeric value onto the stack
+			s.push(curr_char - '0');
+		}
+		else
+		{
+			// handle operators
+			char operation = curr_char;
+
+			if (s.size() < 2)
 			{
-				if (rhs)
-					throw std::runtime_error("Error");
-				result += lhs / rhs;
+				throw std::runtime_error("Insufficient operands for operation");
 			}
-			else
-				result += lhs * rhs;
+
+			double result;
+			double rhs = this->rpop();
+			double lhs = this->rpop();
+
+			switch (operation)
+			{
+			case '+':
+				result = lhs + rhs;
+				break;
+			case '-':
+				result = lhs - rhs;
+				break;
+			case '/':
+				if (rhs == 0)
+					throw std::runtime_error("Division by zero");
+				result = lhs / rhs;
+				break;
+			case '*':
+				result = lhs * rhs;
+				break;
+			default:
+				throw std::runtime_error("Invalid operator");
+			}
+
 			s.push(result);
 		}
 	}
-	std::cout << s.top() << "\n";
+
+	if (s.size() != 1)
+	{
+		throw std::runtime_error("Invalid expression");
+	}
+
+	std::cout << this->rpop() << '\n';
 }

@@ -19,10 +19,11 @@ private:
 
 public:
 	void evaluateExpression(void);
+	double rpop(void);
 
 private:
 	std::string input;
-	std::stack<int> s;
+	std::stack<double> s;
 };
 
 #endif
