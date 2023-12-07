@@ -26,70 +26,84 @@ void PmergeMe::load_data(char *argv[])
 	for (int i = 1; argv[i] != NULL; i++)
 	{
 		long int input_val = strtol(argv[i], NULL, DECIMAL);
-		if (input_val < 0)
+		if (input_val < 1)
 		{
-			throw std::runtime_error("Negative value");
+			throw std::runtime_error("Non positive input");
 		}
-		// if (std::find(input.begin(), input.end(), input_val) != input.end())
-		// {
-		// 	throw std::runtime_error("Dublicate value");
-		// }
+		if (std::find(input.begin(), input.end(), input_val) != input.end())
+		{
+			throw std::runtime_error("Duplicate value");
+		}
 		input.push_back(input_val);
 	}
 }
 
-// Merge function to merge two sorted arrays
-// void merge(std::vector<pair> arr, std::vector<pair> left, int leftSize, std::vector<pair> right, int rightSize);
-void merge(std::vector<pair> &arr, std::vector<pair> &left, std::vector<pair> &right)
+void merge(std::vector<pair> &arr, int left, int middle, int right)
 {
-	int left_size = left.size();
-	int right_size = right.size();
+	int n1 = middle - left + 1;
+	int n2 = right - middle;
 
-	int i = 0, j = 0, k = 0;
-	while (i < left_size && j < right_size)
+	// Create temporary arrays
+	std::vector<pair> L(n1);
+	std::vector<pair> R(n2);
+
+	// Copy data to temporary arrays L[] and R[]
+	for (int i = 0; i < n1; i++)
+		L[i] = arr[left + i];
+	for (int j = 0; j < n2; j++)
+		R[j] = arr[middle + 1 + j];
+
+	// Merge the temporary arrays back into arr[left..right]
+	int i = 0;	  // Initial index of first subarray
+	int j = 0;	  // Initial index of second subarray
+	int k = left; // Initial index of merged subarray
+
+	while (i < n1 && j < n2)
 	{
-		if (left[i].b <= right[j].b)
+		if (L[i].a <= R[j].a)
 		{
-			arr[k++] = left[i++];
+			arr[k] = L[i];
+			i++;
 		}
 		else
 		{
-			arr[k++] = right[j++];
+			arr[k] = R[j];
+			j++;
 		}
+		k++;
 	}
-	while (i < left_size)
+
+	// Copy the remaining elements of L[], if there are any
+	while (i < n1)
 	{
-		arr[k++] = left[i++];
+		arr[k] = L[i];
+		i++;
+		k++;
 	}
-	while (j < right_size)
+
+	// Copy the remaining elements of R[], if there are any
+	while (j < n2)
 	{
-		arr[k++] = right[j++];
+		arr[k] = R[j];
+		j++;
+		k++;
 	}
 }
 
-// Recursive Merge Sort function to sort the array
-void MergeSort(std::vector<pair> &arr, int left, int right)
+void mergeSort(std::vector<pair> &arr, int left, int right)
 {
-	if (left >= right)
-		return;
-
-	int mid = left + (right - left) / 2;
-	MergeSort(arr, left, mid);
-	MergeSort(arr, mid + 1, right);
-
-	std::vector<pair> left_arr(mid - left + 1);
-	std::vector<pair> right_arr(right - mid);
-
-	for (int i = 0; i <= mid - left; i++)
+	if (left < right)
 	{
-		left_arr[i] = arr[left + i];
+		// Same as (left+right)/2, but avoids overflow for large left and right
+		int middle = left + (right - left) / 2;
+
+		// Sort first and second halves
+		mergeSort(arr, left, middle);
+		mergeSort(arr, middle + 1, right);
+
+		// Merge the sorted halves
+		merge(arr, left, middle, right);
 	}
-	for (int i = 0; i < right - mid; i++)
-	{
-		right_arr[i] = arr[mid + 1 + i];
-	}
-	// merge(arr, left_arr, mid - left + 1, right_arr, right - mid);
-	merge(arr, left_arr, right_arr);
 }
 
 void PmergeMe::swap(int &a, int &b)
@@ -112,7 +126,7 @@ std::vector<pair> PmergeMe::createSortedPairs(std::vector<int> input)
 		p.a = *it;
 		p.b = *(it + 1);
 
-		if (p.a > p.b)
+		if (p.a < p.b)
 			this->swap(p.a, p.b);
 
 		pairs.push_back(p);
@@ -147,8 +161,8 @@ void PmergeMe::separatePairs(std::vector<pair> pairs)
 {
 	for (size_t i = 0; i < pairs.size(); i++)
 	{
-		main_chain.push_back(pairs[i].b);
-		pend.push_back(pairs[i].a);
+		main_chain.push_back(pairs[i].a);
+		pend.push_back(pairs[i].b);
 	}
 }
 
@@ -158,9 +172,6 @@ int binarySearch(std::vector<int> arr, int lookup_val, int low, int high)
 		return (lookup_val > arr[low]) ? (low + 1) : low;
 
 	int mid = (low + high) / 2;
-
-	if (lookup_val == arr[mid])
-		return mid + 1;
 
 	if (lookup_val > arr[mid])
 		return binarySearch(arr, lookup_val, mid + 1, high);
@@ -177,7 +188,7 @@ void insertionSort(std::vector<int> &main_chain, std::vector<int> &pend)
 		int curr_val = pend[i];
 
 		// find location where selected should be inserted
-		int loc_idx = binarySearch(main_chain, curr_val, 0, i);
+		int loc_idx = binarySearch(main_chain, curr_val, 0, i + 1);
 		std::vector<int>::iterator pos = main_chain.begin() + loc_idx;
 		main_chain.insert(pos, curr_val);
 	}
@@ -199,13 +210,18 @@ void PmergeMe::sort_data(void)
 
 	this->pairs = PmergeMe::createSortedPairs(this->input);
 
-	MergeSort(this->pairs, 0, this->pairs.size() - 1);
+	mergeSort(this->pairs, 0, this->pairs.size() - 1);
 	PmergeMe::separatePairs(this->pairs);
-	insertSmallest(this->pend, this->main_chain);
+	for (size_t i = 0; i < pairs.size(); i++)
+	{
+		std::cout << "(" << pairs[i].a << ", " << pairs[i].b << "), ";
+	}
+	std::cout << std::endl;
 
 	if (is_stray)
 		this->pend.push_back(straggler);
 
+	main_chain.insert(main_chain.begin(), pend[0]);
 	insertionSort(this->main_chain, this->pend);
 
 	for (size_t i = 0; i < main_chain.size(); i++)
@@ -220,10 +236,5 @@ void PmergeMe::sort_data(void)
 	// }
 	// std::cout << "\n";
 
-	// for (size_t i = 0; i < pairs.size(); i++)
-	// {
-	// 	std::cout << pairs[i] << " ";
-	// 	// std::cout << "(" << pairs[i].a << ", " << pairs[i].b << ")\n";
-	// }
 	// std::cout << "\n";
 }

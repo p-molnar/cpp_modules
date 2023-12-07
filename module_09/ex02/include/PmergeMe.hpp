@@ -26,8 +26,6 @@ private:
 	std::vector<pair> createSortedPairs(std::vector<int> input);
 
 	void separatePairs(std::vector<pair> pairs);
-	// void pairWiseSort(std::vector<pair> pairs);
-	// void mergeSort(std::vector<pair> pairs);
 
 private:
 	std::vector<int> input;

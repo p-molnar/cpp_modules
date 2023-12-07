@@ -12,6 +12,9 @@ int main(int argc, char *argv[])
 
 	PmergeMe Sorter;
 
+	for (int i = 0; i < argc; i++)
+		std::cout << i << ": |" << argv[i] << "|\n";
+
 	try
 	{
 		Sorter.load_data(argv);
