@@ -7,6 +7,7 @@ CPPFLAGS+=	-MMD -MP
 INCLUDE	=	include/
 SRC		=	main.cpp													\
 			PmergeMe.cpp												\
+			Timer.cpp												\
 
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))

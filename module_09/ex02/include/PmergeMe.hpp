@@ -2,6 +2,7 @@
 #define PMERGEME__HPP
 
 #include <vector>
+#include <deque>
 
 typedef struct
 {
@@ -11,27 +12,32 @@ typedef struct
 
 class PmergeMe
 {
-public:
+private:
 	PmergeMe(void);
 	PmergeMe(const PmergeMe &obj);
 	PmergeMe &operator=(const PmergeMe &obj);
 	~PmergeMe();
 
 public:
-	void load_data(char *argv[]);
-	void sort_data(void);
+	static std::vector<int> sort(std::vector<int> input);
+	// static sort(std::deque<int> input);
 
 private:
-	void swap(int &a, int &b);
-	std::vector<pair> createSortedPairs(std::vector<int> input);
+	static void swap(int &a, int &b);
+	static std::vector<pair> createSortedPairs(std::vector<int> input);
+	static void separatePairs(std::vector<pair> pairs,
+							  std::vector<int> &main_chain,
+							  std::vector<pair> &pend);
 
-	void separatePairs(std::vector<pair> pairs);
+	static void separatePairs(std::vector<pair> pairs);
+	static void mergeSort(std::vector<pair> &arr, int left, int right);
+	static void mergeArr(std::vector<pair> &arr, int left, int middle, int right);
 
 private:
-	std::vector<int> input;
-	std::vector<pair> pairs;
-	std::vector<int> main_chain;
-	std::vector<pair> pend;
+	std::vector<int> input_v;
+	std::vector<pair> pairs_v;
+	std::vector<int> main_chain_v;
+	std::vector<pair> pend_v;
 };
 
 #endif
