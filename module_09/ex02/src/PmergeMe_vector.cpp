@@ -63,13 +63,6 @@ void PmergeMe::mergeSort(std::vector<pair> &arr, int left, int right)
 	}
 }
 
-void PmergeMe::swap(int &a, int &b)
-{
-	int tmp = a;
-	a = b;
-	b = tmp;
-}
-
 std::vector<pair> PmergeMe::createSortedPairs(std::vector<int> input)
 {
 	std::vector<int>::iterator it = input.begin();
