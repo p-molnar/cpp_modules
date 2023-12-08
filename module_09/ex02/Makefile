@@ -3,7 +3,7 @@ CC		:=	c++
 CPPFLAGS?=	-Wall -Werror -Wextra -pedantic-errors -std=c++98 -g
 CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
 CPPFLAGS+=	-MMD -MP
-LDFLAGS	?=	-fsanitize=address
+# LDFLAGS	?=	-fsanitize=address
 INCLUDE	=	include/
 SRC		=	main.cpp													\
 			PmergeMe.cpp												\

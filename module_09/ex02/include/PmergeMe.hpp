@@ -31,7 +31,7 @@ private:
 	std::vector<int> input;
 	std::vector<pair> pairs;
 	std::vector<int> main_chain;
-	std::vector<int> pend;
+	std::vector<pair> pend;
 };
 
 #endif
