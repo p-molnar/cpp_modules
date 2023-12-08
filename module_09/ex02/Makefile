@@ -5,9 +5,11 @@ CPPFLAGS+=	$(addprefix -I, $(INCLUDE))
 CPPFLAGS+=	-MMD -MP
 # LDFLAGS	?=	-fsanitize=address
 INCLUDE	=	include/
-SRC		=	main.cpp													\
-			PmergeMe.cpp												\
-			Timer.cpp												\
+SRC		=	main.cpp														\
+			PmergeMe_vector.cpp												\
+			PmergeMe_deque.cpp												\
+			utils.cpp														\
+			Timer.cpp														\
 
 
 OBJ		=	$(addprefix obj/, $(SRC:.cpp=.o))

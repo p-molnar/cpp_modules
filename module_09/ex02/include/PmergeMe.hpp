@@ -20,7 +20,7 @@ private:
 
 public:
 	static std::vector<int> sort(std::vector<int> input);
-	// static sort(std::deque<int> input);
+	static std::deque<int> sort(std::deque<int> input);
 
 private:
 	static void swap(int &a, int &b);
@@ -34,10 +34,14 @@ private:
 	static void mergeArr(std::vector<pair> &arr, int left, int middle, int right);
 
 private:
-	std::vector<int> input_v;
-	std::vector<pair> pairs_v;
-	std::vector<int> main_chain_v;
-	std::vector<pair> pend_v;
+	static std::deque<pair> createSortedPairs(std::deque<int> input);
+	static void separatePairs(std::deque<pair> pairs,
+							  std::deque<int> &main_chain,
+							  std::deque<pair> &pend);
+
+	static void separatePairs(std::deque<pair> pairs);
+	static void mergeSort(std::deque<pair> &arr, int left, int right);
+	static void mergeArr(std::deque<pair> &arr, int left, int middle, int right);
 };
 
 #endif

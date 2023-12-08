@@ -1,4 +1,5 @@
 #include "PmergeMe.hpp"
+#include <iostream>
 
 void PmergeMe::swap(int &a, int &b)
 {
@@ -6,3 +7,4 @@ void PmergeMe::swap(int &a, int &b)
 	a = b;
 	b = tmp;
 }
+
