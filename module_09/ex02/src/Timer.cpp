@@ -8,7 +8,7 @@ void Timer::startTimer(void)
 	if (gettimeofday(&tv, NULL) != 0)
 		throw std::runtime_error("Timer error");
 
-	start_time = tv.tv_sec + tv.tv_usec * 10000000;
+	start_time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 }
 
 void Timer::stopTimer(void)
@@ -17,7 +17,7 @@ void Timer::stopTimer(void)
 	if (gettimeofday(&tv, NULL) != 0)
 		throw std::runtime_error("Timer error");
 
-	end_time = tv.tv_sec + tv.tv_usec * 1000000;
+	end_time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 }
 
 unsigned int Timer::getTimeElapsed(void)

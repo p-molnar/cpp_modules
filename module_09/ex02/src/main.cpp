@@ -47,11 +47,10 @@ int main(int argc, char *argv[])
 
 		std::cout << "time to process " << v.size()
 				  << " elements with PmergeMe::sort: ";
-		std::cout << timer.getTimeElapsed() << "us";
+		std::cout << timer.getTimeElapsed() << "ms";
 		std::cout << std::endl;
 
 		std::cout << std::endl;
-
 		// sort deque with merge insertion
 		std::deque<int> d = Parser::loadData<std::deque<int> >(argv);
 		std::cout << "Before: ";
@@ -68,7 +67,7 @@ int main(int argc, char *argv[])
 
 		std::cout << "time to process " << d.size()
 				  << " elements with PmergeMe::sort: ";
-		std::cout << timer.getTimeElapsed() << "us";
+		std::cout << timer.getTimeElapsed() << "ms";
 		std::cout << std::endl;
 	}
 	catch (const std::exception &e)
