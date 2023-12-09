@@ -2,8 +2,8 @@
 #define UTILS__HPP
 
 #include <string>
-#include <vector>
+#include <list>
 
-std::vector<std::string> split(std::string s, std::string sep = " ");
+std::list<std::string> split(std::string s, std::string sep = " ");
 
 #endif

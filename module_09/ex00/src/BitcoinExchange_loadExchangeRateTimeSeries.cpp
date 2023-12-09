@@ -5,6 +5,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <list>
+#include <iterator>
 
 void BitcoinExchange::loadExchangeRateTimeSeries(std::string path)
 {
@@ -19,12 +21,15 @@ void BitcoinExchange::loadExchangeRateTimeSeries(std::string path)
 		std::getline(file, line);
 		while (std::getline(file, line))
 		{
-			std::vector<std::string> parts = split(line, ",");
+			std::list<std::string> parts = split(line, ",");
 			if (parts.size() != 2)
 				throw std::runtime_error("bad input: 2 required fields: date, exchange_rate");
 
-			ExchangeDate date(parts[0]);
-			ExchangeRate exchange_rate(parts[1]);
+			std::list<std::string>::iterator it = parts.begin();
+
+			ExchangeDate date(*it);
+			std::advance(it, 1);
+			ExchangeRate exchange_rate(*it);
 
 			rates[date] = exchange_rate;
 		}

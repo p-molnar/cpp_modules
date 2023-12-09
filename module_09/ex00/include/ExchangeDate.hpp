@@ -14,14 +14,11 @@ class ExchangeDate
 {
 public:
 	ExchangeDate(void);
+	ExchangeDate(std::string date);
 	ExchangeDate(const ExchangeDate &obj);
 	ExchangeDate &operator=(const ExchangeDate &obj);
 	~ExchangeDate(void);
 
-public:
-	ExchangeDate(std::string date);
-
-	// getter
 public:
 	std::string getDateString(void) const;
 

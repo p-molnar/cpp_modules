@@ -5,6 +5,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <list>
+#include <iterator>
 
 void BitcoinExchange::exchangeHoldings(std::string path)
 {
@@ -21,14 +23,18 @@ void BitcoinExchange::exchangeHoldings(std::string path)
 		{
 			try
 			{
-				std::vector<std::string> parts = split(line, "|");
-				if (parts.size() != 2)
+				std::list<std::string> input_parts = split(line, "|");
+				if (input_parts.size() != 2)
 					throw std::runtime_error("bad input => " + line);
 
-				ExchangeDate date(parts[0]);
-				HoldingValue value(parts[1]);
-				ExchangeRate exchange_rate;
-				exchange_rate = this->getClosestExchangeRate(date);
+				std::list<std::string>::iterator it = input_parts.begin();
+
+				ExchangeDate date(*it);
+				std::advance(it, 1);
+				HoldingValue value(*it);
+
+				ExchangeRate exchange_rate = this->getClosestExchangeRate(date);
+
 				std::cout << date << " => " << value << " = " << value * exchange_rate << "\n";
 			}
 			catch (const std::exception &e)

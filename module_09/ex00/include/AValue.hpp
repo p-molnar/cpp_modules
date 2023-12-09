@@ -15,7 +15,6 @@ public:
 private:
 	virtual void validateInput(void) = 0;
 
-	// getter
 public:
 	float getValue(void) const;
 
@@ -25,4 +24,5 @@ protected:
 
 bool operator<(const Value &lhs, const Value &rhs);
 std::ostream &operator<<(std::ostream &os, const Value &obj);
+
 #endif

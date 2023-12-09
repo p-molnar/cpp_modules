@@ -1,10 +1,10 @@
 #include <string>
-#include <vector>
 #include <iostream>
+#include <list>
 
-std::vector<std::string> split(std::string s, std::string sep = " ")
+std::list<std::string> split(std::string s, std::string sep = " ")
 {
-	std::vector<std::string> vec;
+	std::list<std::string> lst;
 
 	std::string word = "";
 	for (size_t i = 0; i < s.length(); i++)
@@ -14,10 +14,10 @@ std::vector<std::string> split(std::string s, std::string sep = " ")
 			word += curr_char;
 		else
 		{
-			vec.push_back(word);
+			lst.push_back(word);
 			word.clear();
 		}
 	}
-	vec.push_back(word);
-	return vec;
+	lst.push_back(word);
+	return lst;
 }

@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <map>
+#include <list>
 
 ExchangeDate::ExchangeDate(void)
 {
@@ -33,23 +34,30 @@ ExchangeDate::~ExchangeDate(void) {}
 
 ExchangeDate::ExchangeDate(std::string date_input)
 {
-	std::vector<std::string> date_parts = split(date_input, "-");
+	std::list<std::string> date_parts = split(date_input, "-");
 
 	if (date_parts.size() != 3)
 		throw(std::runtime_error("invalid date format\n"));
 
-	if (date_parts[0].length() != 4)
+	std::list<std::string>::iterator it = date_parts.begin();
+	std::string part_y = *it;
+	std::advance(it, 1);
+	std::string part_m = *it;
+	std::advance(it, 1);
+	std::string part_d = *it;
+
+	if (part_y.length() != 4)
 		throw(std::runtime_error("year must be of YYYY representation\n"));
 
-	if (date_parts[1].length() != 2)
+	if (part_m.length() != 2)
 		throw(std::runtime_error("month value must be of MM representation\n"));
 
-	if (date_parts[2].length() != 2)
+	if (part_d.length() != 2)
 		throw(std::runtime_error("day value must be of DD representation\n"));
 
-	int y = stod(date_parts[0]);
-	int m = stod(date_parts[1]);
-	int d = stod(date_parts[2]);
+	int y = stod(part_y);
+	int m = stod(part_m);
+	int d = stod(part_d);
 
 	std::map<int, int> day_count_per_month;
 	day_count_per_month[1] = 31;
