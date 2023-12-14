@@ -3,6 +3,7 @@
 #include "ExchangeDate.hpp"
 #include "ExchangeRate.hpp"
 #include <string>
+#include <cstring>
 #include <iostream>
 #include <fstream>
 #include <list>
@@ -11,7 +12,7 @@
 void BitcoinExchange::loadExchangeRateTimeSeries(std::string path)
 {
 	std::ifstream file;
-	file.open(path);
+	file.open(path.c_str());
 
 	if (file.is_open())
 	{
@@ -35,5 +36,5 @@ void BitcoinExchange::loadExchangeRateTimeSeries(std::string path)
 		}
 	}
 	else
-		std::cout << "Error: " << strerror(errno) << '\n';
+		std::cout << "Error: " << std::strerror(errno) << '\n';
 }

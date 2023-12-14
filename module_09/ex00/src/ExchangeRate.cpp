@@ -1,6 +1,7 @@
 #include "ExchangeRate.hpp"
 #include <stdexcept>
 #include <string>
+#include <cstdlib>
 #include <iostream>
 #include <iomanip>
 

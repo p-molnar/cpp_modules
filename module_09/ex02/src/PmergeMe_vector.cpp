@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 void PmergeMe::mergeArr(std::vector<pair> &arr, int left, int middle, int right)
 {

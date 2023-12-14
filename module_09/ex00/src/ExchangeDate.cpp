@@ -55,9 +55,9 @@ ExchangeDate::ExchangeDate(std::string date_input)
 	if (part_d.length() != 2)
 		throw(std::runtime_error("day value must be of DD representation\n"));
 
-	int y = stod(part_y);
-	int m = stod(part_m);
-	int d = stod(part_d);
+	int y = strtod(part_y.c_str(), NULL);
+	int m = strtod(part_m.c_str(), NULL);
+	int d = strtod(part_d.c_str(), NULL);
 
 	std::map<int, int> day_count_per_month;
 	day_count_per_month[1] = 31;

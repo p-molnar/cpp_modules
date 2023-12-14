@@ -1,6 +1,7 @@
 #include "HoldingValue.hpp"
 #include <stdexcept>
 #include <iostream>
+#include <cstdlib>
 
 HoldingValue::HoldingValue(std::string s) : Value(strtof(s.c_str(), NULL))
 {

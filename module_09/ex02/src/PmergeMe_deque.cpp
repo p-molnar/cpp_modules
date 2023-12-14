@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <deque>
+#include <algorithm>
 
 void PmergeMe::mergeArr(std::deque<pair> &arr, int left, int middle, int right)
 {

@@ -4,6 +4,7 @@
 #include <vector>
 #include <deque>
 #include <cstdlib>
+#include <algorithm>
 #define DECIMAL 10
 
 class Parser
