@@ -22,9 +22,9 @@ std::ostream &operator<<(std::ostream &os, BitcoinExchange &data)
 
 	for (it = data.rates.begin(); it != data.rates.end(); it++)
 	{
-		os << it->first // string (key)
+		os << it->first
 		   << ':'
-		   << it->second // string's value
+		   << it->second
 		   << std::endl;
 	}
 	return os;
@@ -43,6 +43,7 @@ ExchangeRate BitcoinExchange::getClosestExchangeRate(const ExchangeDate &date)
 
 		while (it->first < date && it != rates.end())
 			it++;
+		it--;
 		rate = it->second;
 	}
 
